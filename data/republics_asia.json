@@ -1,0 +1,685 @@
+[
+  {
+    "id": "am",
+    "ar": "أرمينيا",
+    "en": "Armenia",
+    "flag": "🇦🇲",
+    "form": "republic",
+    "sys": "parliamentary",
+    "player": "prime_minister",
+    "legType": "unicameral",
+    "legPower": "high",
+    "jud": "moderate",
+    "mil": "civilian",
+    "parties": "multi",
+    "federal": false,
+    "desc": {
+      "ar": "أنت رئيس الوزراء: تقود السلطة التنفيذية في جمهورية برلمانية ديمقراطية.",
+      "en": "You are the Prime Minister: leading the executive power in a democratic parliamentary republic."
+    }
+  },
+  {
+    "id": "az",
+    "ar": "أذربيجان",
+    "en": "Azerbaijan",
+    "flag": "🇦🇿",
+    "form": "republic",
+    "sys": "presidential",
+    "player": "president",
+    "legType": "unicameral",
+    "legPower": "low",
+    "jud": "limited",
+    "mil": "civilian",
+    "parties": "multi",
+    "federal": false,
+    "desc": {
+      "ar": "أنت الرئيس: تمارس سلطة تنفيذية قوية للغاية في جمهورية رئاسية مركزية.",
+      "en": "You are the President: exercising highly centralized, strong executive authority in a presidential republic."
+    }
+  },
+  {
+    "id": "bd",
+    "ar": "بنجلاديش",
+    "en": "Bangladesh",
+    "flag": "🇧🇩",
+    "form": "republic",
+    "sys": "parliamentary",
+    "player": "prime_minister",
+    "legType": "unicameral",
+    "legPower": "high",
+    "jud": "moderate",
+    "mil": "civilian",
+    "parties": "multi",
+    "federal": false,
+    "desc": {
+      "ar": "أنت رئيس الوزراء: تدير الحكومة البرلمانية وصنع القرار الوطني.",
+      "en": "You are the Prime Minister: managing the parliamentary government and national decision-making."
+    }
+  },
+  {
+    "id": "cn",
+    "ar": "الصين",
+    "en": "China",
+    "flag": "🇨🇳",
+    "form": "republic",
+    "sys": "one_party",
+    "player": "president",
+    "legType": "unicameral",
+    "legPower": "low",
+    "jud": "limited",
+    "mil": "civilian",
+    "parties": "one",
+    "federal": false,
+    "desc": {
+      "ar": "أنت الرئيس: تقود جمهورية الحزب الواحد حيث يقود الحزب الشيوعي الدولة والمجتمع.",
+      "en": "You are the President: leading a one-party republic where the Communist Party guides the state and society."
+    }
+  },
+  {
+    "id": "cy",
+    "ar": "قبرص",
+    "en": "Cyprus",
+    "flag": "🇨🇾",
+    "form": "republic",
+    "sys": "presidential",
+    "player": "president",
+    "legType": "unicameral",
+    "legPower": "moderate",
+    "jud": "high",
+    "mil": "civilian",
+    "terms": [
+      2,
+      5
+    ],
+    "parties": "multi",
+    "federal": false,
+    "desc": {
+      "ar": "أنت الرئيس: رئيس الدولة ورئيس الحكومة بموجب نظام رئاسي متكامل مع برلمان أحادي المجلس.",
+      "en": "You are the President: both head of state and government in a presidential system with a unicameral parliament."
+    }
+  },
+  {
+    "id": "ge",
+    "ar": "جورجيا",
+    "en": "Georgia",
+    "flag": "🇬🇪",
+    "form": "republic",
+    "sys": "parliamentary",
+    "player": "prime_minister",
+    "legType": "unicameral",
+    "legPower": "high",
+    "jud": "moderate",
+    "mil": "civilian",
+    "parties": "multi",
+    "federal": false,
+    "desc": {
+      "ar": "أنت رئيس الوزراء: تقود الحكومة في جمهورية برلمانية وتتمتع بالصلاحيات التنفيذية الرئيسية.",
+      "en": "You are the Prime Minister: leading the government with key executive powers in a parliamentary republic."
+    }
+  },
+  {
+    "id": "in",
+    "ar": "الهند",
+    "en": "India",
+    "flag": "🇮🇳",
+    "form": "republic",
+    "sys": "parliamentary",
+    "player": "prime_minister",
+    "legType": "bicameral",
+    "legPower": "high",
+    "jud": "high",
+    "mil": "civilian",
+    "parties": "multi",
+    "federal": true,
+    "desc": {
+      "ar": "أنت رئيس الوزراء: أكبر ديمقراطية برلمانية اتحادية في العالم.",
+      "en": "You are the PM: the world's largest parliamentary federal democracy."
+    }
+  },
+  {
+    "id": "id",
+    "ar": "إندونيسيا",
+    "en": "Indonesia",
+    "flag": "🇮🇩",
+    "form": "republic",
+    "sys": "presidential",
+    "player": "president",
+    "legType": "bicameral",
+    "legPower": "moderate",
+    "jud": "high",
+    "mil": "civilian",
+    "terms": [
+      2,
+      5
+    ],
+    "parties": "multi",
+    "federal": false,
+    "desc": {
+      "ar": "أنت الرئيس: تقود جمهورية رئاسية واسعة مع برلمان من مجلسين وقضاء مستقل.",
+      "en": "You are the President: leading a vast presidential republic with a bicameral legislature and independent judiciary."
+    }
+  },
+  {
+    "id": "ir",
+    "ar": "إيران",
+    "en": "Iran",
+    "flag": "🇮🇷",
+    "form": "republic",
+    "sys": "theocratic",
+    "player": "president",
+    "legType": "unicameral",
+    "legPower": "moderate",
+    "jud": "limited",
+    "mil": "mixed",
+    "terms": [
+      2,
+      4
+    ],
+    "parties": "multi",
+    "federal": false,
+    "desc": {
+      "ar": "أنت الرئيس: تدير الحكومة والسياسة التنفيذية تحت إشراف القيادة الدينية العليا للبلاد.",
+      "en": "You are the President: managing the government and executive policy under the oversight of the country's religious leadership."
+    }
+  },
+  {
+    "id": "iq",
+    "ar": "العراق",
+    "en": "Iraq",
+    "flag": "🇮🇶",
+    "form": "republic",
+    "sys": "parliamentary",
+    "player": "prime_minister",
+    "legType": "unicameral",
+    "legPower": "high",
+    "jud": "moderate",
+    "mil": "civilian",
+    "parties": "multi",
+    "federal": true,
+    "desc": {
+      "ar": "أنت رئيس الوزراء: تمارس السلطة التنفيذية في جمهورية برلمانية اتحادية قائمة على التوافق السياسي.",
+      "en": "You are the Prime Minister: exercising executive power in a federal parliamentary republic based on political consensus."
+    }
+  },
+  {
+    "id": "il",
+    "ar": "إسرائيل",
+    "en": "Israel",
+    "flag": "🇮🇱",
+    "form": "republic",
+    "sys": "parliamentary",
+    "player": "prime_minister",
+    "legType": "unicameral",
+    "legPower": "high",
+    "jud": "high",
+    "mil": "civilian",
+    "parties": "multi",
+    "federal": false,
+    "desc": {
+      "ar": "أنت رئيس الوزراء: رئيس الحكومة في نظام برلماني بجمعية أحادية ومحكمة عليا فاعلة.",
+      "en": "You are the Prime Minister: head of government in a parliamentary system with a unicameral assembly and an active supreme court."
+    }
+  },
+  {
+    "id": "kz",
+    "ar": "كازاخستان",
+    "en": "Kazakhstan",
+    "flag": "🇰🇿",
+    "form": "republic",
+    "sys": "presidential",
+    "player": "president",
+    "legType": "bicameral",
+    "legPower": "moderate",
+    "jud": "limited",
+    "mil": "civilian",
+    "terms": [
+      1,
+      7
+    ],
+    "parties": "multi",
+    "federal": false,
+    "desc": {
+      "ar": "أنت الرئيس: تقود جمهورية رئاسية مركزية قوية مع برلمان من مجلسين.",
+      "en": "You are the President: leading a highly centralized presidential republic with a bicameral parliament."
+    }
+  },
+  {
+    "id": "kg",
+    "ar": "قرغيزستان",
+    "en": "Kyrgyzstan",
+    "flag": "🇰🇬",
+    "form": "republic",
+    "sys": "presidential",
+    "player": "president",
+    "legType": "unicameral",
+    "legPower": "moderate",
+    "jud": "moderate",
+    "mil": "civilian",
+    "terms": [
+      2,
+      5
+    ],
+    "parties": "multi",
+    "federal": false,
+    "desc": {
+      "ar": "أنت الرئيس: تقود جمهورية رئاسية مركزية بموجب الدستور المعاد صياغته.",
+      "en": "You are the President: leading a centralized presidential republic under the redrafted constitution."
+    }
+  },
+  {
+    "id": "la",
+    "ar": "لاوس",
+    "en": "Laos",
+    "flag": "🇱🇦",
+    "form": "republic",
+    "sys": "one_party",
+    "player": "president",
+    "legType": "unicameral",
+    "legPower": "low",
+    "jud": "limited",
+    "mil": "civilian",
+    "terms": [
+      2,
+      5
+    ],
+    "parties": "one",
+    "federal": false,
+    "desc": {
+      "ar": "أنت الرئيس: تقود جمهورية الحزب الواحد بتوجيه من حزب الشعب الثوري اللاوسي.",
+      "en": "You are the President: leading a one-party republic guided by the Lao People's Revolutionary Party."
+    }
+  },
+  {
+    "id": "lb",
+    "ar": "لبنان",
+    "en": "Lebanon",
+    "flag": "🇱🇧",
+    "form": "republic",
+    "sys": "parliamentary",
+    "player": "prime_minister",
+    "legType": "unicameral",
+    "legPower": "high",
+    "jud": "moderate",
+    "mil": "civilian",
+    "parties": "multi",
+    "federal": false,
+    "desc": {
+      "ar": "أنت رئيس الوزراء: تقود مجلس الوزراء في نظام برلماني قائم على تقاسم السلطة الطائفية.",
+      "en": "You are the Prime Minister: leading the cabinet in a parliamentary system based on sectarian power-sharing."
+    }
+  },
+  {
+    "id": "mv",
+    "ar": "المالديف",
+    "en": "Maldives",
+    "flag": "🇲🇻",
+    "form": "republic",
+    "sys": "presidential",
+    "player": "president",
+    "legType": "unicameral",
+    "legPower": "moderate",
+    "jud": "moderate",
+    "mil": "civilian",
+    "terms": [
+      2,
+      5
+    ],
+    "parties": "multi",
+    "federal": false,
+    "desc": {
+      "ar": "أنت الرئيس: رئيس الدولة ورئيس الحكومة في جمهورية رئاسية متعددة الأحزاب.",
+      "en": "You are the President: head of state and government in a multi-party presidential republic."
+    }
+  },
+  {
+    "id": "mn",
+    "ar": "منغوليا",
+    "en": "Mongolia",
+    "flag": "🇲🇳",
+    "form": "republic",
+    "sys": "semi_presidential",
+    "player": "prime_minister",
+    "legType": "unicameral",
+    "legPower": "high",
+    "jud": "high",
+    "mil": "civilian",
+    "parties": "multi",
+    "federal": false,
+    "desc": {
+      "ar": "أنت رئيس الوزراء: تدير الشؤون التنفيذية وتشارك القيادة مع رئيس منتخب شعبياً.",
+      "en": "You are the Prime Minister: managing executive affairs and sharing leadership with a popularly elected president."
+    }
+  },
+  {
+    "id": "mm",
+    "ar": "ميانمار",
+    "en": "Myanmar",
+    "flag": "🇲🇲",
+    "form": "republic",
+    "sys": "military",
+    "player": "council",
+    "legType": "none",
+    "legPower": "none",
+    "jud": "limited",
+    "mil": "military",
+    "parties": "none",
+    "federal": false,
+    "desc": {
+      "ar": "أنت رئيس المجلس: تدير شؤون الدولة عبر مجلس إدارة الدولة العسكري بعد تعليق الدستور.",
+      "en": "You are the Council Head: running the state via a military administration after the constitution's suspension."
+    }
+  },
+  {
+    "id": "np",
+    "ar": "نيبال",
+    "en": "Nepal",
+    "flag": "🇳🇵",
+    "form": "republic",
+    "sys": "parliamentary",
+    "player": "prime_minister",
+    "legType": "bicameral",
+    "legPower": "high",
+    "jud": "high",
+    "mil": "civilian",
+    "parties": "multi",
+    "federal": true,
+    "desc": {
+      "ar": "أنت رئيس الوزراء: تقود الحكومة في جمهورية برلمانية اتحادية علمانية في الهيمالايا.",
+      "en": "You are the Prime Minister: leading the government in a secular federal parliamentary republic in the Himalayas."
+    }
+  },
+  {
+    "id": "kp",
+    "ar": "كوريا الشمالية",
+    "en": "North Korea",
+    "flag": "🇰🇵",
+    "form": "republic",
+    "sys": "one_party",
+    "player": "president",
+    "legType": "unicameral",
+    "legPower": "low",
+    "jud": "limited",
+    "mil": "military",
+    "parties": "one",
+    "federal": false,
+    "desc": {
+      "ar": "أنت الرئيس: تمارس سلطة مطلقة في جمهورية الحزب الواحد الموجهة عسكرياً.",
+      "en": "You are the President: exercising absolute control in a highly militarized one-party republic."
+    }
+  },
+  {
+    "id": "pk",
+    "ar": "باكستان",
+    "en": "Pakistan",
+    "flag": "🇵🇰",
+    "form": "republic",
+    "sys": "parliamentary",
+    "player": "prime_minister",
+    "legType": "bicameral",
+    "legPower": "high",
+    "jud": "high",
+    "mil": "mixed",
+    "parties": "multi",
+    "federal": true,
+    "desc": {
+      "ar": "أنت رئيس الوزراء: تقود جمهورية برلمانية اتحادية إسلامية مع نفوذ عسكري تقليدي قوي.",
+      "en": "You are the Prime Minister: leading an Islamic federal parliamentary republic with strong traditional military influence."
+    }
+  },
+  {
+    "id": "ph",
+    "ar": "الفلبين",
+    "en": "Philippines",
+    "flag": "🇵🇭",
+    "form": "republic",
+    "sys": "presidential",
+    "player": "president",
+    "legType": "bicameral",
+    "legPower": "high",
+    "jud": "high",
+    "mil": "civilian",
+    "terms": [
+      1,
+      6
+    ],
+    "parties": "multi",
+    "federal": false,
+    "desc": {
+      "ar": "أنت الرئيس: رئيس الدولة ورئيس الحكومة في جمهورية رئاسية بكونغرس قوي وقضاء مستقل.",
+      "en": "You are the President: head of state and government in a presidential republic with a strong congress and independent judiciary."
+    }
+  },
+  {
+    "id": "sg",
+    "ar": "سنغافورة",
+    "en": "Singapore",
+    "flag": "🇸🇬",
+    "form": "republic",
+    "sys": "parliamentary",
+    "player": "prime_minister",
+    "legType": "unicameral",
+    "legPower": "high",
+    "jud": "high",
+    "mil": "civilian",
+    "parties": "multi",
+    "federal": false,
+    "desc": {
+      "ar": "أنت رئيس الوزراء: تقود السلطة التنفيذية في جمهورية برلمانية تحت هيمنة الحزب الواحد فعلياً.",
+      "en": "You are the Prime Minister: leading the executive in a parliamentary republic dominated by a single party."
+    }
+  },
+  {
+    "id": "kr",
+    "ar": "كوريا الجنوبية",
+    "en": "South Korea",
+    "flag": "🇰🇷",
+    "form": "republic",
+    "sys": "presidential",
+    "player": "president",
+    "legType": "unicameral",
+    "legPower": "high",
+    "jud": "high",
+    "mil": "civilian",
+    "terms": [
+      1,
+      5
+    ],
+    "parties": "multi",
+    "federal": false,
+    "desc": {
+      "ar": "أنت الرئيس: تقود جمهورية رئاسية قوية مع جمعية وطنية أحادية المجلس وقضاء قوي.",
+      "en": "You are the President: leading a robust presidential republic with a unicameral assembly and strong judiciary."
+    }
+  },
+  {
+    "id": "lk",
+    "ar": "سريلانكا",
+    "en": "Sri Lanka",
+    "flag": "🇱🇰",
+    "form": "republic",
+    "sys": "semi_presidential",
+    "player": "president",
+    "legType": "unicameral",
+    "legPower": "moderate",
+    "jud": "high",
+    "mil": "civilian",
+    "terms": [
+      2,
+      5
+    ],
+    "parties": "multi",
+    "federal": false,
+    "desc": {
+      "ar": "أنت الرئيس: رئيس الدولة ورئيس الحكومة في جمهورية ديمقراطية اشتراكية شبه رئاسية.",
+      "en": "You are the President: head of state and government in a semi-presidential democratic socialist republic."
+    }
+  },
+  {
+    "id": "sy",
+    "ar": "سوريا",
+    "en": "Syria",
+    "flag": "🇸🇾",
+    "form": "republic",
+    "sys": "provisional",
+    "player": "prime_minister",
+    "legType": "none",
+    "legPower": "none",
+    "jud": "limited",
+    "mil": "mixed",
+    "parties": "none",
+    "federal": false,
+    "desc": {
+      "ar": "أنت رئيس الوزراء: تدير الحكومة الانتقالية خلال مرحلة إعادة بناء الدولة والدستور الجديد.",
+      "en": "You are the Prime Minister: managing the transitional government during the rebuilding of the state and its new constitution."
+    }
+  },
+  {
+    "id": "tj",
+    "ar": "طاجيكستان",
+    "en": "Tajikistan",
+    "flag": "🇹🇯",
+    "form": "republic",
+    "sys": "presidential",
+    "player": "president",
+    "legType": "bicameral",
+    "legPower": "low",
+    "jud": "limited",
+    "mil": "civilian",
+    "terms": [
+      2,
+      7
+    ],
+    "parties": "multi",
+    "federal": false,
+    "desc": {
+      "ar": "أنت الرئيس: تقود جمهورية رئاسية مركزية مع برلمان ثنائي التمثيل وسيطرة تنفيذية كاملة.",
+      "en": "You are the President: leading a highly centralized presidential republic with a bicameral parliament."
+    }
+  },
+  {
+    "id": "tl",
+    "ar": "تيمور الشرقية",
+    "en": "Timor-Leste",
+    "flag": "🇹🇱",
+    "form": "republic",
+    "sys": "semi_presidential",
+    "player": "prime_minister",
+    "legType": "unicameral",
+    "legPower": "high",
+    "jud": "high",
+    "mil": "civilian",
+    "parties": "multi",
+    "federal": false,
+    "desc": {
+      "ar": "أنت رئيس الوزراء: تقود الحكومة وتدير شؤون الدولة في جمهورية شبه رئاسية ديمقراطية.",
+      "en": "You are the Prime Minister: leading the government and executive power in a democratic semi-presidential republic."
+    }
+  },
+  {
+    "id": "tr",
+    "ar": "تركيا",
+    "en": "Turkey",
+    "flag": "🇹🇷",
+    "form": "republic",
+    "sys": "presidential",
+    "player": "president",
+    "legType": "unicameral",
+    "legPower": "moderate",
+    "jud": "moderate",
+    "mil": "civilian",
+    "terms": [
+      2,
+      5
+    ],
+    "parties": "multi",
+    "federal": false,
+    "desc": {
+      "ar": "أنت الرئيس: رئيس الدولة ورئيس الحكومة في جمهورية رئاسية مركزية قوية.",
+      "en": "You are the President: head of state and government in a strong centralized presidential republic."
+    }
+  },
+  {
+    "id": "tm",
+    "ar": "تركمانستان",
+    "en": "Turkmenistan",
+    "flag": "🇹🇲",
+    "form": "republic",
+    "sys": "presidential",
+    "player": "president",
+    "legType": "unicameral",
+    "legPower": "low",
+    "jud": "limited",
+    "mil": "civilian",
+    "parties": "one",
+    "federal": false,
+    "desc": {
+      "ar": "أنت الرئيس: تمارس سلطة تنفيذية مطلقة في جمهورية رئاسية يهيمن عليها الحزب الحاكم.",
+      "en": "You are the President: wielding total executive authority in a presidential republic dominated by the ruling party."
+    }
+  },
+  {
+    "id": "uz",
+    "ar": "أوزبكستان",
+    "en": "Uzbekistan",
+    "flag": "🇺🇿",
+    "form": "republic",
+    "sys": "presidential",
+    "player": "president",
+    "legType": "bicameral",
+    "legPower": "moderate",
+    "jud": "moderate",
+    "mil": "civilian",
+    "terms": [
+      2,
+      7
+    ],
+    "parties": "multi",
+    "federal": false,
+    "desc": {
+      "ar": "أنت الرئيس: تقود جمهورية رئاسية مركزية ذات نظام برلماني مكون من مجلسين.",
+      "en": "You are the President: leading a centralized presidential republic with a bicameral parliament."
+    }
+  },
+  {
+    "id": "vn",
+    "ar": "فيتنام",
+    "en": "Vietnam",
+    "flag": "🇻🇳",
+    "form": "republic",
+    "sys": "one_party",
+    "player": "president",
+    "legType": "unicameral",
+    "legPower": "low",
+    "jud": "limited",
+    "mil": "civilian",
+    "terms": [
+      2,
+      5
+    ],
+    "parties": "one",
+    "federal": false,
+    "desc": {
+      "ar": "أنت الرئيس: تقود جمهورية الحزب الواحد بالتعاون مع الحزب الشيوعي الفيتنامي.",
+      "en": "You are the President: leading a one-party republic in coordination with the Communist Party of Vietnam."
+    }
+  },
+  {
+    "id": "ye",
+    "ar": "اليمن",
+    "en": "Yemen",
+    "flag": "🇾🇪",
+    "form": "republic",
+    "sys": "provisional",
+    "player": "council",
+    "legType": "unicameral",
+    "legPower": "low",
+    "jud": "limited",
+    "mil": "mixed",
+    "parties": "multi",
+    "federal": false,
+    "desc": {
+      "ar": "أنت رئيس المجلس: تقود مجلس القيادة الرئاسي الانتقالي لإدارة شؤون الدولة وسط النزاع.",
+      "en": "You are the Council Head: leading the transitional Presidential Leadership Council to manage state affairs amidst conflict."
+    }
+  }
+]
