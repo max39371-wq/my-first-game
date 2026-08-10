@@ -1,0 +1,672 @@
+[
+  {
+    "id": "us",
+    "ar": "الولايات المتحدة",
+    "en": "United States",
+    "flag": "🇺🇸",
+    "form": "republic",
+    "sys": "presidential",
+    "player": "president",
+    "legType": "bicameral",
+    "legPower": "high",
+    "jud": "high",
+    "mil": "civilian",
+    "terms": [2, 4],
+    "parties": "multi",
+    "federal": true,
+    "desc": {
+      "ar": "أنت الرئيس: جمهورية اتحادية بكونغرس قوي وقضاء مستقل.",
+      "en": "You are the President: a federal republic with a strong congress and independent judiciary."
+    }
+  },
+  {
+    "id": "mx",
+    "ar": "المكسيك",
+    "en": "Mexico",
+    "flag": "🇲🇽",
+    "form": "republic",
+    "sys": "presidential",
+    "player": "president",
+    "legType": "bicameral",
+    "legPower": "moderate",
+    "jud": "moderate",
+    "mil": "civilian",
+    "terms": [1, 6],
+    "parties": "multi",
+    "federal": true,
+    "desc": {
+      "ar": "أنت الرئيس: تقود جمهورية اتحادية مع نظام رئاسي وبرلمان من مجلسين.",
+      "en": "You are the President: leading a federal republic with a presidential system and a bicameral congress."
+    }
+  },
+  {
+    "id": "gt",
+    "ar": "غواتيمالا",
+    "en": "Guatemala",
+    "flag": "🇬🇹",
+    "form": "republic",
+    "sys": "presidential",
+    "player": "president",
+    "legType": "unicameral",
+    "legPower": "moderate",
+    "jud": "moderate",
+    "mil": "civilian",
+    "terms": [1, 4],
+    "parties": "multi",
+    "federal": false,
+    "desc": {
+      "ar": "أنت الرئيس: تقود جمهورية رئاسية مع كونغرس أحادي المجلس وقضاء يسعى للاستقلال.",
+      "en": "You are the President: leading a presidential republic with a unicameral congress and a judiciary striving for independence."
+    }
+  },
+  {
+    "id": "hn",
+    "ar": "هندوراس",
+    "en": "Honduras",
+    "flag": "🇭🇳",
+    "form": "republic",
+    "sys": "presidential",
+    "player": "president",
+    "legType": "unicameral",
+    "legPower": "moderate",
+    "jud": "moderate",
+    "mil": "civilian",
+    "terms": [1, 4],
+    "parties": "multi",
+    "federal": false,
+    "desc": {
+      "ar": "أنت الرئيس: تقود جمهورية رئاسية مع مؤتمر وطني أحادي المجلس.",
+      "en": "You are the President: leading a presidential republic with a unicameral National Congress."
+    }
+  },
+  {
+    "id": "sv",
+    "ar": "السلفادور",
+    "en": "El Salvador",
+    "flag": "🇸🇻",
+    "form": "republic",
+    "sys": "presidential",
+    "player": "president",
+    "legType": "unicameral",
+    "legPower": "low",
+    "jud": "limited",
+    "mil": "civilian",
+    "terms": [2, 5],
+    "parties": "multi",
+    "federal": false,
+    "desc": {
+      "ar": "أنت الرئيس: تقود جمهورية رئاسية مركزية للغاية مع أغلبية برلمانية مهيمنة.",
+      "en": "You are the President: leading a highly centralized presidential republic with a dominant legislative majority."
+    }
+  },
+  {
+    "id": "ni",
+    "ar": "نيكاراغوا",
+    "en": "Nicaragua",
+    "flag": "🇳🇮",
+    "form": "republic",
+    "sys": "one_party",
+    "player": "president",
+    "legType": "unicameral",
+    "legPower": "low",
+    "jud": "limited",
+    "mil": "civilian",
+    "parties": "one",
+    "federal": false,
+    "desc": {
+      "ar": "أنت الرئيس: تحكم جمهورية حزب واحد بسلطة تنفيذية مطلقة وبرلمان خاضع.",
+      "en": "You are the President: ruling a single-party state with absolute executive power and a compliant legislature."
+    }
+  },
+  {
+    "id": "cr",
+    "ar": "كوستاريكا",
+    "en": "Costa Rica",
+    "flag": "🇨🇷",
+    "form": "republic",
+    "sys": "presidential",
+    "player": "president",
+    "legType": "unicameral",
+    "legPower": "high",
+    "jud": "high",
+    "mil": "civilian",
+    "terms": [2, 4],
+    "parties": "multi",
+    "federal": false,
+    "desc": {
+      "ar": "أنت الرئيس: تقود ديمقراطية رئاسية مستقرة ومزدهرة بلا جيش وقضاء قوي.",
+      "en": "You are the President: leading a stable and prosperous presidential democracy with no military and a strong judiciary."
+    }
+  },
+  {
+    "id": "pa",
+    "ar": "بنما",
+    "en": "Panama",
+    "flag": "🇵🇦",
+    "form": "republic",
+    "sys": "presidential",
+    "player": "president",
+    "legType": "unicameral",
+    "legPower": "moderate",
+    "jud": "moderate",
+    "mil": "civilian",
+    "terms": [1, 5],
+    "parties": "multi",
+    "federal": false,
+    "desc": {
+      "ar": "أنت الرئيس: تقود جمهورية رئاسية مع برلمان أحادي المجلس يسيطر على الميزانية.",
+      "en": "You are the President: leading a presidential republic with a unicameral assembly that controls the budget."
+    }
+  },
+  {
+    "id": "cu",
+    "ar": "كوبا",
+    "en": "Cuba",
+    "flag": "🇨🇺",
+    "form": "republic",
+    "sys": "one_party",
+    "player": "president",
+    "legType": "unicameral",
+    "legPower": "low",
+    "jud": "limited",
+    "mil": "mixed",
+    "terms": [2, 5],
+    "parties": "one",
+    "federal": false,
+    "desc": {
+      "ar": "أنت الرئيس: تقود جمهورية اشتراكية ذات حزب واحد بسلطة تنفيذية مركزية.",
+      "en": "You are the President: leading a single-party socialist republic with centralized executive authority."
+    }
+  },
+  {
+    "id": "do",
+    "ar": "جمهورية الدومينيكان",
+    "en": "Dominican Republic",
+    "flag": "🇩🇴",
+    "form": "republic",
+    "sys": "presidential",
+    "player": "president",
+    "legType": "bicameral",
+    "legPower": "moderate",
+    "jud": "moderate",
+    "mil": "civilian",
+    "terms": [2, 4],
+    "parties": "multi",
+    "federal": false,
+    "desc": {
+      "ar": "أنت الرئيس: تقود جمهورية رئاسية ذات سيادة مع كونغرس ثنائي التمثيل.",
+      "en": "You are the President: leading a sovereign presidential republic with a bicameral congress."
+    }
+  },
+  {
+    "id": "ht",
+    "ar": "هايتي",
+    "en": "Haiti",
+    "flag": "🇭🇹",
+    "form": "republic",
+    "sys": "provisional",
+    "player": "council",
+    "legType": "none",
+    "legPower": "none",
+    "jud": "limited",
+    "mil": "civilian",
+    "parties": "multi",
+    "federal": false,
+    "desc": {
+      "ar": "أنت المجلس: تقود سلطة انتقالية مؤقتة لإعادة الاستقرار والمؤسسات الدستورية.",
+      "en": "You are the Council: leading a transitional authority to restore stability and constitutional institutions."
+    }
+  },
+  {
+    "id": "bb",
+    "ar": "باربادوس",
+    "en": "Barbados",
+    "flag": "🇧🇧",
+    "form": "republic",
+    "sys": "parliamentary",
+    "player": "prime_minister",
+    "legType": "bicameral",
+    "legPower": "high",
+    "jud": "high",
+    "mil": "civilian",
+    "terms": [2, 5],
+    "parties": "multi",
+    "federal": false,
+    "desc": {
+      "ar": "أنت رئيس الوزراء: تقود جمهورية برلمانية تأسست حديثاً في الكاريبي مع رئيس شرفي.",
+      "en": "You are the Prime Minister: leading a newly established parliamentary republic in the Caribbean with a ceremonial president."
+    }
+  },
+  {
+    "id": "tt",
+    "ar": "ترينيداد وتوباغو",
+    "en": "Trinidad and Tobago",
+    "flag": "🇹🇹",
+    "form": "republic",
+    "sys": "parliamentary",
+    "player": "prime_minister",
+    "legType": "bicameral",
+    "legPower": "high",
+    "jud": "high",
+    "mil": "civilian",
+    "parties": "multi",
+    "federal": false,
+    "desc": {
+      "ar": "أنت رئيس الوزراء: تقود جمهورية برلمانية مستقرة ذات مجلسين ورئيس شرفي.",
+      "en": "You are the Prime Minister: leading a stable parliamentary republic with a bicameral legislature and ceremonial president."
+    }
+  },
+  {
+    "id": "dm",
+    "ar": "دومينيكا",
+    "en": "Dominica",
+    "flag": "🇩🇲",
+    "form": "republic",
+    "sys": "parliamentary",
+    "player": "prime_minister",
+    "legType": "unicameral",
+    "legPower": "high",
+    "jud": "high",
+    "mil": "civilian",
+    "parties": "multi",
+    "federal": false,
+    "desc": {
+      "ar": "أنت رئيس الوزراء: تقود جمهورية برلمانية برئيس شرفي ومجلس نواب أحادي المجلس.",
+      "en": "You are the Prime Minister: leading a parliamentary republic with a ceremonial president and a unicameral assembly."
+    }
+  },
+  {
+    "id": "gy",
+    "ar": "غيانا",
+    "en": "Guyana",
+    "flag": "🇬🇾",
+    "form": "republic",
+    "sys": "presidential",
+    "player": "president",
+    "legType": "unicameral",
+    "legPower": "moderate",
+    "jud": "moderate",
+    "mil": "civilian",
+    "terms": [2, 5],
+    "parties": "multi",
+    "federal": false,
+    "desc": {
+      "ar": "أنت الرئيس: تقود جمهورية رئاسية فريدة ببرلمان أحادي المجلس يعتمد التمثيل النسبي.",
+      "en": "You are the President: leading a unique presidential republic with a unicameral parliament based on proportional representation."
+    }
+  },
+  {
+    "id": "sr",
+    "ar": "سورينام",
+    "en": "Suriname",
+    "flag": "🇸🇷",
+    "form": "republic",
+    "sys": "parliamentary",
+    "player": "president",
+    "legType": "unicameral",
+    "legPower": "high",
+    "jud": "moderate",
+    "mil": "civilian",
+    "terms": [2, 5],
+    "parties": "multi",
+    "federal": false,
+    "desc": {
+      "ar": "أنت الرئيس: رئيس تنفيذي للدولة تختاره وتراقبه الجمعية الوطنية أحادية المجلس.",
+      "en": "You are the President: executive head of state chosen and monitored by a unicameral National Assembly."
+    }
+  },
+  {
+    "id": "co",
+    "ar": "كولومبيا",
+    "en": "Colombia",
+    "flag": "🇨🇴",
+    "form": "republic",
+    "sys": "presidential",
+    "player": "president",
+    "legType": "bicameral",
+    "legPower": "moderate",
+    "jud": "high",
+    "mil": "civilian",
+    "terms": [1, 4],
+    "parties": "multi",
+    "federal": false,
+    "desc": {
+      "ar": "أنت الرئيس: تقود جمهورية رئاسية مركزية مع برلمان من مجلسين وقضاء مستقل.",
+      "en": "You are the President: leading a centralized presidential republic with a bicameral congress and independent judiciary."
+    }
+  },
+  {
+    "id": "ve",
+    "ar": "فنزويلا",
+    "en": "Venezuela",
+    "flag": "🇻🇪",
+    "form": "republic",
+    "sys": "one_party",
+    "player": "president",
+    "legType": "unicameral",
+    "legPower": "low",
+    "jud": "limited",
+    "mil": "mixed",
+    "parties": "multi",
+    "federal": true,
+    "desc": {
+      "ar": "أنت الرئيس: تقود دولة فيدرالية تحت سيطرة الحزب الواحد الحاكم مع تمثيل برلماني خاضع.",
+      "en": "You are the President: leading a federal state under ruling-party control with a compliant legislature."
+    }
+  },
+  {
+    "id": "ec",
+    "ar": "الإكوادور",
+    "en": "Ecuador",
+    "flag": "🇪🇨",
+    "form": "republic",
+    "sys": "presidential",
+    "player": "president",
+    "legType": "unicameral",
+    "legPower": "moderate",
+    "jud": "moderate",
+    "mil": "civilian",
+    "terms": [2, 4],
+    "parties": "multi",
+    "federal": false,
+    "desc": {
+      "ar": "أنت الرئيس: تقود جمهورية رئاسية مع جمعية وطنية نشطة أحادية المجلس.",
+      "en": "You are the President: leading a presidential republic with an active unicameral National Assembly."
+    }
+  },
+  {
+    "id": "pe",
+    "ar": "بيرو",
+    "en": "Peru",
+    "flag": "🇵🇪",
+    "form": "republic",
+    "sys": "semi_presidential",
+    "player": "president",
+    "legType": "unicameral",
+    "legPower": "high",
+    "jud": "moderate",
+    "mil": "civilian",
+    "terms": [1, 5],
+    "parties": "multi",
+    "federal": false,
+    "desc": {
+      "ar": "أنت الرئيس: تقود جمهورية شبه رئاسية حيث يمتلك الكونغرس أحادي المجلس سلطة عزل قوية.",
+      "en": "You are the President: leading a semi-presidential republic where the unicameral Congress holds strong impeachment powers."
+    }
+  },
+  {
+    "id": "br",
+    "ar": "البرازيل",
+    "en": "Brazil",
+    "flag": "🇧🇷",
+    "form": "republic",
+    "sys": "presidential",
+    "player": "president",
+    "legType": "bicameral",
+    "legPower": "high",
+    "jud": "high",
+    "mil": "civilian",
+    "terms": [2, 4],
+    "parties": "multi",
+    "federal": true,
+    "desc": {
+      "ar": "أنت الرئيس: جمهورية اتحادية بكونغرس قوي وقضاء مستقل.",
+      "en": "You are the President: a federal republic with a strong congress and independent judiciary."
+    }
+  },
+  {
+    "id": "bo",
+    "ar": "بوليفيا",
+    "en": "Bolivia",
+    "flag": "🇧🇴",
+    "form": "republic",
+    "sys": "presidential",
+    "player": "president",
+    "legType": "bicameral",
+    "legPower": "moderate",
+    "jud": "moderate",
+    "mil": "civilian",
+    "terms": [2, 5],
+    "parties": "multi",
+    "federal": false,
+    "desc": {
+      "ar": "أنت الرئيس: تقود دولة متعددة القوميات مع جمعية تشريعية من مجلسين وقضاء منتخب.",
+      "en": "You are the President: leading a plurinational state with a bicameral legislative assembly and elected judiciary."
+    }
+  },
+  {
+    "id": "py",
+    "ar": "باراغواي",
+    "en": "Paraguay",
+    "flag": "🇵🇾",
+    "form": "republic",
+    "sys": "presidential",
+    "player": "president",
+    "legType": "bicameral",
+    "legPower": "moderate",
+    "jud": "moderate",
+    "mil": "civilian",
+    "terms": [1, 5],
+    "parties": "multi",
+    "federal": false,
+    "desc": {
+      "ar": "أنت الرئيس: تقود جمهورية رئاسية مع كونغرس ثنائي التمثيل وحد زمني صارم لولاية واحدة.",
+      "en": "You are the President: leading a presidential republic with a bicameral congress and a strict single-term limit."
+    }
+  },
+  {
+    "id": "uy",
+    "ar": "أوروغواي",
+    "en": "Uruguay",
+    "flag": "🇺🇾",
+    "form": "republic",
+    "sys": "presidential",
+    "player": "president",
+    "legType": "bicameral",
+    "legPower": "high",
+    "jud": "high",
+    "mil": "civilian",
+    "terms": [2, 5],
+    "parties": "multi",
+    "federal": false,
+    "desc": {
+      "ar": "أنت الرئيس: تقود ديمقراطية رئاسية مستقرة للغاية مع قضاء مستقل وبرلمان قوي.",
+      "en": "You are the President: leading a highly stable presidential democracy with an independent judiciary and strong parliament."
+    }
+  },
+  {
+    "id": "ar",
+    "ar": "الأرجنتين",
+    "en": "Argentina",
+    "flag": "🇦🇷",
+    "form": "republic",
+    "sys": "presidential",
+    "player": "president",
+    "legType": "bicameral",
+    "legPower": "moderate",
+    "jud": "moderate",
+    "mil": "civilian",
+    "terms": [2, 4],
+    "parties": "multi",
+    "federal": true,
+    "desc": {
+      "ar": "أنت الرئيس: تقود جمهورية اتحادية رئاسية ذات قضاء مستقل وكونغرس من مجلسين.",
+      "en": "You are the President: leading a federal presidential republic with an independent judiciary and a bicameral congress."
+    }
+  },
+  {
+    "id": "cl",
+    "ar": "تشيلي",
+    "en": "Chile",
+    "flag": "🇨🇱",
+    "form": "republic",
+    "sys": "presidential",
+    "player": "president",
+    "legType": "bicameral",
+    "legPower": "moderate",
+    "jud": "high",
+    "mil": "civilian",
+    "terms": [2, 4],
+    "parties": "multi",
+    "federal": false,
+    "desc": {
+      "ar": "أنت الرئيس: تقود جمهورية رئاسية مستقرة مع برلمان ثنائي التمثيل وقضاء مستقل.",
+      "en": "You are the President: leading a stable presidential republic with a bicameral parliament and independent judiciary."
+    }
+  },
+  {
+    "id": "fj",
+    "ar": "فيجي",
+    "en": "Fiji",
+    "flag": "🇫🇯",
+    "form": "republic",
+    "sys": "parliamentary",
+    "player": "prime_minister",
+    "legType": "unicameral",
+    "legPower": "high",
+    "jud": "moderate",
+    "mil": "mixed",
+    "parties": "multi",
+    "federal": false,
+    "desc": {
+      "ar": "أنت رئيس الوزراء: تقود حكومة برلمانية في فيجي تحت ظل رئيس شرفي ونفوذ عسكري تاريخي.",
+      "en": "You are the Prime Minister: leading a parliamentary government in Fiji under a ceremonial president and historic military influence."
+    }
+  },
+  {
+    "id": "vu",
+    "ar": "فانواتو",
+    "en": "Vanuatu",
+    "flag": "🇻🇺",
+    "form": "republic",
+    "sys": "parliamentary",
+    "player": "prime_minister",
+    "legType": "unicameral",
+    "legPower": "high",
+    "jud": "high",
+    "mil": "civilian",
+    "parties": "multi",
+    "federal": false,
+    "desc": {
+      "ar": "أنت رئيس الوزراء: تقود جمهورية برلمانية برئيس شرفي ونظام حزبي متعدد مجزأ.",
+      "en": "You are the Prime Minister: leading a parliamentary republic with a ceremonial president and a highly fragmented multi-party system."
+    }
+  },
+  {
+    "id": "ki",
+    "ar": "كيريباتي",
+    "en": "Kiribati",
+    "flag": "🇰🇮",
+    "form": "republic",
+    "sys": "presidential",
+    "player": "president",
+    "legType": "unicameral",
+    "legPower": "high",
+    "jud": "moderate",
+    "mil": "civilian",
+    "terms": [3, 4],
+    "parties": "multi",
+    "federal": false,
+    "desc": {
+      "ar": "أنت الرئيس: تقود ديمقراطية جزرية ببرلمان أحادي المجلس ينتخب المرشحين للرئاسة.",
+      "en": "You are the President: leading an island democracy with a unicameral parliament that nominates presidential candidates."
+    }
+  },
+  {
+    "id": "mh",
+    "ar": "جزر مارشال",
+    "en": "Marshall Islands",
+    "flag": "🇲🇭",
+    "form": "republic",
+    "sys": "parliamentary",
+    "player": "president",
+    "legType": "unicameral",
+    "legPower": "high",
+    "jud": "high",
+    "mil": "civilian",
+    "parties": "multi",
+    "federal": false,
+    "desc": {
+      "ar": "أنت الرئيس: رئيس تنفيذي للدولة وحكومة برلمانية يختارك البرلمان أحادي المجلس.",
+      "en": "You are the President: executive head of state and a parliamentary government chosen by the unicameral Nitijeḷā."
+    }
+  },
+  {
+    "id": "fm",
+    "ar": "مايكرونيزيا",
+    "en": "Micronesia",
+    "flag": "🇫🇲",
+    "form": "republic",
+    "sys": "parliamentary",
+    "player": "president",
+    "legType": "unicameral",
+    "legPower": "high",
+    "jud": "moderate",
+    "mil": "civilian",
+    "terms": [2, 4],
+    "parties": "none",
+    "federal": true,
+    "desc": {
+      "ar": "أنت الرئيس: رئيس تنفيذي لاتحاد فيدرالي يختاره الكونغرس أحادي المجلس دون أحزاب سياسية.",
+      "en": "You are the President: executive head of a federation chosen by a unicameral Congress without political parties."
+    }
+  },
+  {
+    "id": "pw",
+    "ar": "بالاو",
+    "en": "Palau",
+    "flag": "🇵🇼",
+    "form": "republic",
+    "sys": "presidential",
+    "player": "president",
+    "legType": "bicameral",
+    "legPower": "high",
+    "jud": "high",
+    "mil": "civilian",
+    "terms": [2, 4],
+    "parties": "none",
+    "federal": false,
+    "desc": {
+      "ar": "أنت الرئيس: تقود ديمقراطية رئاسية خالية من الأحزاب السياسية مع برلمان قوي من مجلسين.",
+      "en": "You are the President: leading a presidential democracy free of political parties with a strong bicameral parliament."
+    }
+  },
+  {
+    "id": "nr",
+    "ar": "ناورو",
+    "en": "Nauru",
+    "flag": "🇳🇷",
+    "form": "republic",
+    "sys": "parliamentary",
+    "player": "president",
+    "legType": "unicameral",
+    "legPower": "high",
+    "jud": "moderate",
+    "mil": "civilian",
+    "parties": "multi",
+    "federal": false,
+    "desc": {
+      "ar": "أنت الرئيس: رئيس تنفيذي تنتخبه وتراقبه الجمعية البرلمانية أحادية المجلس.",
+      "en": "You are the President: executive head of state elected and monitored by a unicameral parliamentary assembly."
+    }
+  },
+  {
+    "id": "ws",
+    "ar": "ساموا",
+    "en": "Samoa",
+    "flag": "🇼🇸",
+    "form": "republic",
+    "sys": "parliamentary",
+    "player": "prime_minister",
+    "legType": "unicameral",
+    "legPower": "high",
+    "jud": "high",
+    "mil": "civilian",
+    "parties": "multi",
+    "federal": false,
+    "desc": {
+      "ar": "أنت رئيس الوزراء: تقود حكومة برلمانية في ساموا مع برلمان أحادي المجلس ورئيس شرفي.",
+      "en": "You are the Prime Minister: leading a parliamentary government in Samoa with a unicameral parliament and a ceremonial head of state."
+    }
+  }
+]
