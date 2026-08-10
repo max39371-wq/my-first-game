@@ -1,11 +1,1739 @@
-{
-  "dz": { "economy": 55, "stability": 60, "popularity": 50, "military": 70, "corruption": 45 },
-  "gb": { "economy": 65, "stability": 75, "popularity": 45, "military": 50, "corruption": 15 },
-  "eg": { "economy": 45, "stability": 55, "popularity": 50, "military": 65, "corruption": 50 },
-  "us": { "economy": 70, "stability": 65, "popularity": 40, "military": 85, "corruption": 20 },
-  "fr": { "economy": 60, "stability": 55, "popularity": 45, "military": 60, "corruption": 25 },
-  "cn": { "economy": 80, "stability": 85, "popularity": 70, "military": 75, "corruption": 35 },
-  "ru": { "economy": 50, "stability": 70, "popularity": 65, "military": 80, "corruption": 55 },
-  "sa": { "economy": 75, "stability": 80, "popularity": 60, "military": 65, "corruption": 30 },
-  "jp": { "economy": 70, "stability": 85, "popularity": 55, "military": 45, "corruption": 10 }
-}
+[
+  {
+    "id": "ad",
+    "eco": 70,
+    "stb": 85,
+    "pop": 60,
+    "mil": 60,
+    "corr": 25,
+    "econ": "services"
+  },
+  {
+    "id": "ae",
+    "eco": 50,
+    "stb": 60,
+    "pop": 50,
+    "mil": 60,
+    "corr": 50,
+    "econ": "mixed"
+  },
+  {
+    "id": "ag",
+    "eco": 70,
+    "stb": 85,
+    "pop": 60,
+    "mil": 60,
+    "corr": 25,
+    "econ": "services"
+  },
+  {
+    "id": "al",
+    "eco": 60,
+    "stb": 60,
+    "pop": 50,
+    "mil": 50,
+    "corr": 40,
+    "econ": "mixed"
+  },
+  {
+    "id": "am",
+    "eco": 50,
+    "stb": 50,
+    "pop": 50,
+    "mil": 50,
+    "corr": 50,
+    "econ": "mixed"
+  },
+  {
+    "id": "ao",
+    "eco": 40,
+    "stb": 40,
+    "pop": 50,
+    "mil": 55,
+    "corr": 60,
+    "econ": "mixed"
+  },
+  {
+    "id": "ar",
+    "eco": 50,
+    "stb": 50,
+    "pop": 50,
+    "mil": 50,
+    "corr": 50,
+    "econ": "mixed"
+  },
+  {
+    "id": "at",
+    "eco": 80,
+    "stb": 85,
+    "pop": 60,
+    "mil": 50,
+    "corr": 15,
+    "econ": "services"
+  },
+  {
+    "id": "au",
+    "eco": 70,
+    "stb": 85,
+    "pop": 60,
+    "mil": 60,
+    "corr": 25,
+    "econ": "services"
+  },
+  {
+    "id": "az",
+    "eco": 40,
+    "stb": 45,
+    "pop": 45,
+    "mil": 50,
+    "corr": 70,
+    "econ": "resources"
+  },
+  {
+    "id": "ba",
+    "eco": 60,
+    "stb": 60,
+    "pop": 50,
+    "mil": 50,
+    "corr": 40,
+    "econ": "mixed"
+  },
+  {
+    "id": "bb",
+    "eco": 70,
+    "stb": 75,
+    "pop": 60,
+    "mil": 50,
+    "corr": 25,
+    "econ": "services"
+  },
+  {
+    "id": "bd",
+    "eco": 50,
+    "stb": 50,
+    "pop": 50,
+    "mil": 50,
+    "corr": 50,
+    "econ": "mixed"
+  },
+  {
+    "id": "be",
+    "eco": 70,
+    "stb": 85,
+    "pop": 60,
+    "mil": 60,
+    "corr": 25,
+    "econ": "services"
+  },
+  {
+    "id": "bf",
+    "eco": 20,
+    "stb": 15,
+    "pop": 35,
+    "mil": 70,
+    "corr": 90,
+    "econ": "agriculture"
+  },
+  {
+    "id": "bg",
+    "eco": 60,
+    "stb": 60,
+    "pop": 50,
+    "mil": 50,
+    "corr": 40,
+    "econ": "mixed"
+  },
+  {
+    "id": "bh",
+    "eco": 50,
+    "stb": 60,
+    "pop": 50,
+    "mil": 60,
+    "corr": 50,
+    "econ": "mixed"
+  },
+  {
+    "id": "bi",
+    "eco": 40,
+    "stb": 40,
+    "pop": 50,
+    "mil": 55,
+    "corr": 60,
+    "econ": "mixed"
+  },
+  {
+    "id": "bj",
+    "eco": 40,
+    "stb": 40,
+    "pop": 50,
+    "mil": 55,
+    "corr": 60,
+    "econ": "mixed"
+  },
+  {
+    "id": "bn",
+    "eco": 65,
+    "stb": 75,
+    "pop": 45,
+    "mil": 60,
+    "corr": 50,
+    "econ": "resources"
+  },
+  {
+    "id": "bo",
+    "eco": 50,
+    "stb": 50,
+    "pop": 50,
+    "mil": 50,
+    "corr": 50,
+    "econ": "mixed"
+  },
+  {
+    "id": "br",
+    "eco": 70,
+    "stb": 75,
+    "pop": 60,
+    "mil": 50,
+    "corr": 25,
+    "econ": "services"
+  },
+  {
+    "id": "bs",
+    "eco": 70,
+    "stb": 85,
+    "pop": 60,
+    "mil": 60,
+    "corr": 25,
+    "econ": "services"
+  },
+  {
+    "id": "bt",
+    "eco": 70,
+    "stb": 85,
+    "pop": 60,
+    "mil": 60,
+    "corr": 25,
+    "econ": "services"
+  },
+  {
+    "id": "bw",
+    "eco": 60,
+    "stb": 65,
+    "pop": 60,
+    "mil": 55,
+    "corr": 35,
+    "econ": "agriculture"
+  },
+  {
+    "id": "by",
+    "eco": 50,
+    "stb": 55,
+    "pop": 45,
+    "mil": 50,
+    "corr": 60,
+    "econ": "industry"
+  },
+  {
+    "id": "bz",
+    "eco": 70,
+    "stb": 85,
+    "pop": 60,
+    "mil": 60,
+    "corr": 25,
+    "econ": "services"
+  },
+  {
+    "id": "ca",
+    "eco": 70,
+    "stb": 85,
+    "pop": 60,
+    "mil": 60,
+    "corr": 25,
+    "econ": "services"
+  },
+  {
+    "id": "cd",
+    "eco": 40,
+    "stb": 40,
+    "pop": 50,
+    "mil": 55,
+    "corr": 60,
+    "econ": "mixed"
+  },
+  {
+    "id": "cf",
+    "eco": 30,
+    "stb": 35,
+    "pop": 45,
+    "mil": 55,
+    "corr": 80,
+    "econ": "resources"
+  },
+  {
+    "id": "cg",
+    "eco": 30,
+    "stb": 35,
+    "pop": 45,
+    "mil": 55,
+    "corr": 80,
+    "econ": "resources"
+  },
+  {
+    "id": "ch",
+    "eco": 70,
+    "stb": 80,
+    "pop": 60,
+    "mil": 85,
+    "corr": 35,
+    "econ": "industry"
+  },
+  {
+    "id": "ci",
+    "eco": 40,
+    "stb": 40,
+    "pop": 50,
+    "mil": 55,
+    "corr": 60,
+    "econ": "mixed"
+  },
+  {
+    "id": "cl",
+    "eco": 70,
+    "stb": 75,
+    "pop": 60,
+    "mil": 50,
+    "corr": 25,
+    "econ": "services"
+  },
+  {
+    "id": "cm",
+    "eco": 30,
+    "stb": 35,
+    "pop": 45,
+    "mil": 55,
+    "corr": 80,
+    "econ": "resources"
+  },
+  {
+    "id": "cn",
+    "eco": 40,
+    "stb": 45,
+    "pop": 45,
+    "mil": 50,
+    "corr": 70,
+    "econ": "resources"
+  },
+  {
+    "id": "co",
+    "eco": 70,
+    "stb": 75,
+    "pop": 60,
+    "mil": 50,
+    "corr": 25,
+    "econ": "services"
+  },
+  {
+    "id": "cr",
+    "eco": 70,
+    "stb": 75,
+    "pop": 60,
+    "mil": 50,
+    "corr": 25,
+    "econ": "services"
+  },
+  {
+    "id": "cu",
+    "eco": 40,
+    "stb": 45,
+    "pop": 45,
+    "mil": 50,
+    "corr": 70,
+    "econ": "resources"
+  },
+  {
+    "id": "cv",
+    "eco": 60,
+    "stb": 65,
+    "pop": 60,
+    "mil": 55,
+    "corr": 35,
+    "econ": "agriculture"
+  },
+  {
+    "id": "cy",
+    "eco": 70,
+    "stb": 75,
+    "pop": 60,
+    "mil": 50,
+    "corr": 25,
+    "econ": "services"
+  },
+  {
+    "id": "cz",
+    "eco": 80,
+    "stb": 85,
+    "pop": 60,
+    "mil": 50,
+    "corr": 15,
+    "econ": "services"
+  },
+  {
+    "id": "de",
+    "eco": 75,
+    "stb": 70,
+    "pop": 60,
+    "mil": 55,
+    "corr": 20,
+    "econ": "industry"
+  },
+  {
+    "id": "dj",
+    "eco": 30,
+    "stb": 35,
+    "pop": 45,
+    "mil": 55,
+    "corr": 80,
+    "econ": "resources"
+  },
+  {
+    "id": "dk",
+    "eco": 70,
+    "stb": 85,
+    "pop": 60,
+    "mil": 60,
+    "corr": 25,
+    "econ": "services"
+  },
+  {
+    "id": "dm",
+    "eco": 70,
+    "stb": 75,
+    "pop": 60,
+    "mil": 50,
+    "corr": 25,
+    "econ": "services"
+  },
+  {
+    "id": "do",
+    "eco": 50,
+    "stb": 50,
+    "pop": 50,
+    "mil": 50,
+    "corr": 50,
+    "econ": "mixed"
+  },
+  {
+    "id": "dz",
+    "eco": 40,
+    "stb": 40,
+    "pop": 50,
+    "mil": 55,
+    "corr": 60,
+    "econ": "mixed"
+  },
+  {
+    "id": "ec",
+    "eco": 50,
+    "stb": 50,
+    "pop": 50,
+    "mil": 50,
+    "corr": 50,
+    "econ": "mixed"
+  },
+  {
+    "id": "ee",
+    "eco": 80,
+    "stb": 85,
+    "pop": 60,
+    "mil": 50,
+    "corr": 15,
+    "econ": "services"
+  },
+  {
+    "id": "eg",
+    "eco": 40,
+    "stb": 40,
+    "pop": 50,
+    "mil": 55,
+    "corr": 60,
+    "econ": "mixed"
+  },
+  {
+    "id": "er",
+    "eco": 30,
+    "stb": 35,
+    "pop": 45,
+    "mil": 55,
+    "corr": 80,
+    "econ": "resources"
+  },
+  {
+    "id": "es",
+    "eco": 70,
+    "stb": 85,
+    "pop": 60,
+    "mil": 60,
+    "corr": 25,
+    "econ": "services"
+  },
+  {
+    "id": "et",
+    "eco": 40,
+    "stb": 40,
+    "pop": 50,
+    "mil": 55,
+    "corr": 60,
+    "econ": "mixed"
+  },
+  {
+    "id": "fi",
+    "eco": 80,
+    "stb": 85,
+    "pop": 60,
+    "mil": 50,
+    "corr": 15,
+    "econ": "services"
+  },
+  {
+    "id": "fj",
+    "eco": 50,
+    "stb": 50,
+    "pop": 50,
+    "mil": 50,
+    "corr": 50,
+    "econ": "mixed"
+  },
+  {
+    "id": "fm",
+    "eco": 50,
+    "stb": 50,
+    "pop": 50,
+    "mil": 50,
+    "corr": 50,
+    "econ": "mixed"
+  },
+  {
+    "id": "fr",
+    "eco": 80,
+    "stb": 85,
+    "pop": 60,
+    "mil": 50,
+    "corr": 15,
+    "econ": "services"
+  },
+  {
+    "id": "ga",
+    "eco": 20,
+    "stb": 15,
+    "pop": 35,
+    "mil": 70,
+    "corr": 90,
+    "econ": "agriculture"
+  },
+  {
+    "id": "gb",
+    "eco": 70,
+    "stb": 85,
+    "pop": 60,
+    "mil": 60,
+    "corr": 25,
+    "econ": "services"
+  },
+  {
+    "id": "gd",
+    "eco": 70,
+    "stb": 85,
+    "pop": 60,
+    "mil": 60,
+    "corr": 25,
+    "econ": "services"
+  },
+  {
+    "id": "ge",
+    "eco": 50,
+    "stb": 50,
+    "pop": 50,
+    "mil": 50,
+    "corr": 50,
+    "econ": "mixed"
+  },
+  {
+    "id": "gh",
+    "eco": 60,
+    "stb": 65,
+    "pop": 60,
+    "mil": 55,
+    "corr": 35,
+    "econ": "agriculture"
+  },
+  {
+    "id": "gm",
+    "eco": 60,
+    "stb": 65,
+    "pop": 60,
+    "mil": 55,
+    "corr": 35,
+    "econ": "agriculture"
+  },
+  {
+    "id": "gn",
+    "eco": 20,
+    "stb": 15,
+    "pop": 35,
+    "mil": 70,
+    "corr": 90,
+    "econ": "agriculture"
+  },
+  {
+    "id": "gq",
+    "eco": 30,
+    "stb": 35,
+    "pop": 45,
+    "mil": 55,
+    "corr": 80,
+    "econ": "resources"
+  },
+  {
+    "id": "gr",
+    "eco": 80,
+    "stb": 85,
+    "pop": 60,
+    "mil": 50,
+    "corr": 15,
+    "econ": "services"
+  },
+  {
+    "id": "gt",
+    "eco": 50,
+    "stb": 50,
+    "pop": 50,
+    "mil": 50,
+    "corr": 50,
+    "econ": "mixed"
+  },
+  {
+    "id": "gw",
+    "eco": 40,
+    "stb": 40,
+    "pop": 50,
+    "mil": 55,
+    "corr": 60,
+    "econ": "mixed"
+  },
+  {
+    "id": "gy",
+    "eco": 50,
+    "stb": 50,
+    "pop": 50,
+    "mil": 50,
+    "corr": 50,
+    "econ": "mixed"
+  },
+  {
+    "id": "hn",
+    "eco": 50,
+    "stb": 50,
+    "pop": 50,
+    "mil": 50,
+    "corr": 50,
+    "econ": "mixed"
+  },
+  {
+    "id": "hr",
+    "eco": 80,
+    "stb": 85,
+    "pop": 60,
+    "mil": 50,
+    "corr": 15,
+    "econ": "services"
+  },
+  {
+    "id": "ht",
+    "eco": 30,
+    "stb": 25,
+    "pop": 35,
+    "mil": 65,
+    "corr": 80,
+    "econ": "agriculture"
+  },
+  {
+    "id": "hu",
+    "eco": 60,
+    "stb": 60,
+    "pop": 50,
+    "mil": 50,
+    "corr": 40,
+    "econ": "mixed"
+  },
+  {
+    "id": "id",
+    "eco": 70,
+    "stb": 75,
+    "pop": 60,
+    "mil": 50,
+    "corr": 25,
+    "econ": "services"
+  },
+  {
+    "id": "ie",
+    "eco": 80,
+    "stb": 85,
+    "pop": 60,
+    "mil": 50,
+    "corr": 15,
+    "econ": "services"
+  },
+  {
+    "id": "il",
+    "eco": 70,
+    "stb": 75,
+    "pop": 60,
+    "mil": 50,
+    "corr": 25,
+    "econ": "services"
+  },
+  {
+    "id": "in",
+    "eco": 70,
+    "stb": 75,
+    "pop": 60,
+    "mil": 50,
+    "corr": 25,
+    "econ": "services"
+  },
+  {
+    "id": "iq",
+    "eco": 50,
+    "stb": 50,
+    "pop": 50,
+    "mil": 50,
+    "corr": 50,
+    "econ": "mixed"
+  },
+  {
+    "id": "ir",
+    "eco": 40,
+    "stb": 45,
+    "pop": 45,
+    "mil": 50,
+    "corr": 70,
+    "econ": "resources"
+  },
+  {
+    "id": "is",
+    "eco": 80,
+    "stb": 85,
+    "pop": 60,
+    "mil": 50,
+    "corr": 15,
+    "econ": "services"
+  },
+  {
+    "id": "it",
+    "eco": 80,
+    "stb": 85,
+    "pop": 60,
+    "mil": 50,
+    "corr": 15,
+    "econ": "services"
+  },
+  {
+    "id": "jm",
+    "eco": 70,
+    "stb": 85,
+    "pop": 60,
+    "mil": 60,
+    "corr": 25,
+    "econ": "services"
+  },
+  {
+    "id": "jo",
+    "eco": 50,
+    "stb": 60,
+    "pop": 50,
+    "mil": 60,
+    "corr": 50,
+    "econ": "mixed"
+  },
+  {
+    "id": "jp",
+    "eco": 70,
+    "stb": 85,
+    "pop": 60,
+    "mil": 60,
+    "corr": 25,
+    "econ": "services"
+  },
+  {
+    "id": "ke",
+    "eco": 60,
+    "stb": 65,
+    "pop": 60,
+    "mil": 55,
+    "corr": 35,
+    "econ": "agriculture"
+  },
+  {
+    "id": "kg",
+    "eco": 50,
+    "stb": 50,
+    "pop": 50,
+    "mil": 50,
+    "corr": 50,
+    "econ": "mixed"
+  },
+  {
+    "id": "kh",
+    "eco": 70,
+    "stb": 85,
+    "pop": 60,
+    "mil": 60,
+    "corr": 25,
+    "econ": "services"
+  },
+  {
+    "id": "ki",
+    "eco": 50,
+    "stb": 50,
+    "pop": 50,
+    "mil": 50,
+    "corr": 50,
+    "econ": "mixed"
+  },
+  {
+    "id": "km",
+    "eco": 40,
+    "stb": 40,
+    "pop": 50,
+    "mil": 55,
+    "corr": 60,
+    "econ": "mixed"
+  },
+  {
+    "id": "kn",
+    "eco": 70,
+    "stb": 85,
+    "pop": 60,
+    "mil": 60,
+    "corr": 25,
+    "econ": "services"
+  },
+  {
+    "id": "kp",
+    "eco": 40,
+    "stb": 45,
+    "pop": 45,
+    "mil": 50,
+    "corr": 70,
+    "econ": "resources"
+  },
+  {
+    "id": "kr",
+    "eco": 70,
+    "stb": 75,
+    "pop": 60,
+    "mil": 50,
+    "corr": 25,
+    "econ": "services"
+  },
+  {
+    "id": "kw",
+    "eco": 50,
+    "stb": 60,
+    "pop": 50,
+    "mil": 60,
+    "corr": 50,
+    "econ": "mixed"
+  },
+  {
+    "id": "kz",
+    "eco": 40,
+    "stb": 45,
+    "pop": 45,
+    "mil": 50,
+    "corr": 70,
+    "econ": "resources"
+  },
+  {
+    "id": "la",
+    "eco": 40,
+    "stb": 45,
+    "pop": 45,
+    "mil": 50,
+    "corr": 70,
+    "econ": "resources"
+  },
+  {
+    "id": "lb",
+    "eco": 50,
+    "stb": 50,
+    "pop": 50,
+    "mil": 50,
+    "corr": 50,
+    "econ": "mixed"
+  },
+  {
+    "id": "lc",
+    "eco": 70,
+    "stb": 85,
+    "pop": 60,
+    "mil": 60,
+    "corr": 25,
+    "econ": "services"
+  },
+  {
+    "id": "li",
+    "eco": 70,
+    "stb": 85,
+    "pop": 60,
+    "mil": 60,
+    "corr": 25,
+    "econ": "services"
+  },
+  {
+    "id": "lk",
+    "eco": 70,
+    "stb": 75,
+    "pop": 60,
+    "mil": 50,
+    "corr": 25,
+    "econ": "services"
+  },
+  {
+    "id": "lr",
+    "eco": 40,
+    "stb": 40,
+    "pop": 50,
+    "mil": 55,
+    "corr": 60,
+    "econ": "mixed"
+  },
+  {
+    "id": "ls",
+    "eco": 70,
+    "stb": 85,
+    "pop": 60,
+    "mil": 60,
+    "corr": 25,
+    "econ": "services"
+  },
+  {
+    "id": "lt",
+    "eco": 80,
+    "stb": 85,
+    "pop": 60,
+    "mil": 50,
+    "corr": 15,
+    "econ": "services"
+  },
+  {
+    "id": "lu",
+    "eco": 70,
+    "stb": 85,
+    "pop": 60,
+    "mil": 60,
+    "corr": 25,
+    "econ": "services"
+  },
+  {
+    "id": "lv",
+    "eco": 80,
+    "stb": 85,
+    "pop": 60,
+    "mil": 50,
+    "corr": 15,
+    "econ": "services"
+  },
+  {
+    "id": "ly",
+    "eco": 20,
+    "stb": 15,
+    "pop": 35,
+    "mil": 70,
+    "corr": 90,
+    "econ": "agriculture"
+  },
+  {
+    "id": "ma",
+    "eco": 50,
+    "stb": 60,
+    "pop": 50,
+    "mil": 60,
+    "corr": 50,
+    "econ": "mixed"
+  },
+  {
+    "id": "mc",
+    "eco": 70,
+    "stb": 85,
+    "pop": 60,
+    "mil": 60,
+    "corr": 25,
+    "econ": "services"
+  },
+  {
+    "id": "md",
+    "eco": 60,
+    "stb": 60,
+    "pop": 50,
+    "mil": 50,
+    "corr": 40,
+    "econ": "mixed"
+  },
+  {
+    "id": "me",
+    "eco": 60,
+    "stb": 60,
+    "pop": 50,
+    "mil": 50,
+    "corr": 40,
+    "econ": "mixed"
+  },
+  {
+    "id": "mg",
+    "eco": 40,
+    "stb": 40,
+    "pop": 50,
+    "mil": 55,
+    "corr": 60,
+    "econ": "mixed"
+  },
+  {
+    "id": "mh",
+    "eco": 70,
+    "stb": 75,
+    "pop": 60,
+    "mil": 50,
+    "corr": 25,
+    "econ": "services"
+  },
+  {
+    "id": "mk",
+    "eco": 60,
+    "stb": 60,
+    "pop": 50,
+    "mil": 50,
+    "corr": 40,
+    "econ": "mixed"
+  },
+  {
+    "id": "ml",
+    "eco": 20,
+    "stb": 15,
+    "pop": 35,
+    "mil": 70,
+    "corr": 90,
+    "econ": "agriculture"
+  },
+  {
+    "id": "mm",
+    "eco": 30,
+    "stb": 25,
+    "pop": 35,
+    "mil": 65,
+    "corr": 80,
+    "econ": "agriculture"
+  },
+  {
+    "id": "mn",
+    "eco": 70,
+    "stb": 75,
+    "pop": 60,
+    "mil": 50,
+    "corr": 25,
+    "econ": "services"
+  },
+  {
+    "id": "mr",
+    "eco": 40,
+    "stb": 40,
+    "pop": 50,
+    "mil": 55,
+    "corr": 60,
+    "econ": "mixed"
+  },
+  {
+    "id": "mt",
+    "eco": 80,
+    "stb": 85,
+    "pop": 60,
+    "mil": 50,
+    "corr": 15,
+    "econ": "services"
+  },
+  {
+    "id": "mu",
+    "eco": 60,
+    "stb": 65,
+    "pop": 60,
+    "mil": 55,
+    "corr": 35,
+    "econ": "agriculture"
+  },
+  {
+    "id": "mv",
+    "eco": 50,
+    "stb": 50,
+    "pop": 50,
+    "mil": 50,
+    "corr": 50,
+    "econ": "mixed"
+  },
+  {
+    "id": "mw",
+    "eco": 60,
+    "stb": 65,
+    "pop": 60,
+    "mil": 55,
+    "corr": 35,
+    "econ": "agriculture"
+  },
+  {
+    "id": "mx",
+    "eco": 50,
+    "stb": 50,
+    "pop": 50,
+    "mil": 50,
+    "corr": 50,
+    "econ": "mixed"
+  },
+  {
+    "id": "my",
+    "eco": 70,
+    "stb": 85,
+    "pop": 60,
+    "mil": 60,
+    "corr": 25,
+    "econ": "services"
+  },
+  {
+    "id": "mz",
+    "eco": 40,
+    "stb": 40,
+    "pop": 50,
+    "mil": 55,
+    "corr": 60,
+    "econ": "mixed"
+  },
+  {
+    "id": "na",
+    "eco": 60,
+    "stb": 65,
+    "pop": 60,
+    "mil": 55,
+    "corr": 35,
+    "econ": "agriculture"
+  },
+  {
+    "id": "ne",
+    "eco": 20,
+    "stb": 15,
+    "pop": 35,
+    "mil": 70,
+    "corr": 90,
+    "econ": "agriculture"
+  },
+  {
+    "id": "ng",
+    "eco": 40,
+    "stb": 40,
+    "pop": 50,
+    "mil": 55,
+    "corr": 60,
+    "econ": "mixed"
+  },
+  {
+    "id": "ni",
+    "eco": 40,
+    "stb": 45,
+    "pop": 45,
+    "mil": 50,
+    "corr": 70,
+    "econ": "resources"
+  },
+  {
+    "id": "nl",
+    "eco": 70,
+    "stb": 85,
+    "pop": 60,
+    "mil": 60,
+    "corr": 25,
+    "econ": "services"
+  },
+  {
+    "id": "no",
+    "eco": 80,
+    "stb": 85,
+    "pop": 75,
+    "mil": 55,
+    "corr": 10,
+    "econ": "resources"
+  },
+  {
+    "id": "np",
+    "eco": 70,
+    "stb": 75,
+    "pop": 60,
+    "mil": 50,
+    "corr": 25,
+    "econ": "services"
+  },
+  {
+    "id": "nr",
+    "eco": 50,
+    "stb": 50,
+    "pop": 50,
+    "mil": 50,
+    "corr": 50,
+    "econ": "mixed"
+  },
+  {
+    "id": "nz",
+    "eco": 70,
+    "stb": 85,
+    "pop": 60,
+    "mil": 60,
+    "corr": 25,
+    "econ": "services"
+  },
+  {
+    "id": "om",
+    "eco": 65,
+    "stb": 75,
+    "pop": 45,
+    "mil": 60,
+    "corr": 50,
+    "econ": "resources"
+  },
+  {
+    "id": "pa",
+    "eco": 50,
+    "stb": 50,
+    "pop": 50,
+    "mil": 50,
+    "corr": 50,
+    "econ": "mixed"
+  },
+  {
+    "id": "pe",
+    "eco": 50,
+    "stb": 50,
+    "pop": 50,
+    "mil": 50,
+    "corr": 50,
+    "econ": "mixed"
+  },
+  {
+    "id": "pg",
+    "eco": 70,
+    "stb": 85,
+    "pop": 60,
+    "mil": 60,
+    "corr": 25,
+    "econ": "services"
+  },
+  {
+    "id": "ph",
+    "eco": 70,
+    "stb": 75,
+    "pop": 60,
+    "mil": 50,
+    "corr": 25,
+    "econ": "services"
+  },
+  {
+    "id": "pk",
+    "eco": 70,
+    "stb": 75,
+    "pop": 60,
+    "mil": 50,
+    "corr": 25,
+    "econ": "services"
+  },
+  {
+    "id": "pl",
+    "eco": 80,
+    "stb": 85,
+    "pop": 60,
+    "mil": 50,
+    "corr": 15,
+    "econ": "services"
+  },
+  {
+    "id": "pt",
+    "eco": 80,
+    "stb": 85,
+    "pop": 60,
+    "mil": 50,
+    "corr": 15,
+    "econ": "services"
+  },
+  {
+    "id": "pw",
+    "eco": 70,
+    "stb": 75,
+    "pop": 60,
+    "mil": 50,
+    "corr": 25,
+    "econ": "services"
+  },
+  {
+    "id": "py",
+    "eco": 50,
+    "stb": 50,
+    "pop": 50,
+    "mil": 50,
+    "corr": 50,
+    "econ": "mixed"
+  },
+  {
+    "id": "qa",
+    "eco": 65,
+    "stb": 75,
+    "pop": 45,
+    "mil": 60,
+    "corr": 50,
+    "econ": "resources"
+  },
+  {
+    "id": "ro",
+    "eco": 80,
+    "stb": 85,
+    "pop": 60,
+    "mil": 50,
+    "corr": 15,
+    "econ": "services"
+  },
+  {
+    "id": "rs",
+    "eco": 60,
+    "stb": 60,
+    "pop": 50,
+    "mil": 50,
+    "corr": 40,
+    "econ": "mixed"
+  },
+  {
+    "id": "ru",
+    "eco": 50,
+    "stb": 55,
+    "pop": 45,
+    "mil": 50,
+    "corr": 60,
+    "econ": "industry"
+  },
+  {
+    "id": "rw",
+    "eco": 40,
+    "stb": 40,
+    "pop": 50,
+    "mil": 55,
+    "corr": 60,
+    "econ": "mixed"
+  },
+  {
+    "id": "sa",
+    "eco": 70,
+    "stb": 70,
+    "pop": 65,
+    "mil": 70,
+    "corr": 45,
+    "econ": "resources"
+  },
+  {
+    "id": "sb",
+    "eco": 70,
+    "stb": 85,
+    "pop": 60,
+    "mil": 60,
+    "corr": 25,
+    "econ": "services"
+  },
+  {
+    "id": "sc",
+    "eco": 60,
+    "stb": 65,
+    "pop": 60,
+    "mil": 55,
+    "corr": 35,
+    "econ": "agriculture"
+  },
+  {
+    "id": "sd",
+    "eco": 20,
+    "stb": 15,
+    "pop": 35,
+    "mil": 70,
+    "corr": 90,
+    "econ": "agriculture"
+  },
+  {
+    "id": "se",
+    "eco": 70,
+    "stb": 85,
+    "pop": 60,
+    "mil": 60,
+    "corr": 25,
+    "econ": "services"
+  },
+  {
+    "id": "sg",
+    "eco": 85,
+    "stb": 85,
+    "pop": 70,
+    "mil": 50,
+    "corr": 10,
+    "econ": "trade"
+  },
+  {
+    "id": "si",
+    "eco": 80,
+    "stb": 85,
+    "pop": 60,
+    "mil": 50,
+    "corr": 15,
+    "econ": "services"
+  },
+  {
+    "id": "sk",
+    "eco": 80,
+    "stb": 85,
+    "pop": 60,
+    "mil": 50,
+    "corr": 15,
+    "econ": "services"
+  },
+  {
+    "id": "sl",
+    "eco": 40,
+    "stb": 40,
+    "pop": 50,
+    "mil": 55,
+    "corr": 60,
+    "econ": "mixed"
+  },
+  {
+    "id": "sm",
+    "eco": 80,
+    "stb": 85,
+    "pop": 60,
+    "mil": 50,
+    "corr": 15,
+    "econ": "services"
+  },
+  {
+    "id": "sn",
+    "eco": 40,
+    "stb": 40,
+    "pop": 50,
+    "mil": 55,
+    "corr": 60,
+    "econ": "mixed"
+  },
+  {
+    "id": "so",
+    "eco": 20,
+    "stb": 15,
+    "pop": 40,
+    "mil": 25,
+    "corr": 85,
+    "econ": "agriculture"
+  },
+  {
+    "id": "sr",
+    "eco": 50,
+    "stb": 50,
+    "pop": 50,
+    "mil": 50,
+    "corr": 50,
+    "econ": "mixed"
+  },
+  {
+    "id": "ss",
+    "eco": 20,
+    "stb": 15,
+    "pop": 35,
+    "mil": 70,
+    "corr": 90,
+    "econ": "agriculture"
+  },
+  {
+    "id": "st",
+    "eco": 40,
+    "stb": 40,
+    "pop": 50,
+    "mil": 55,
+    "corr": 60,
+    "econ": "mixed"
+  },
+  {
+    "id": "sv",
+    "eco": 40,
+    "stb": 45,
+    "pop": 45,
+    "mil": 50,
+    "corr": 70,
+    "econ": "resources"
+  },
+  {
+    "id": "sy",
+    "eco": 30,
+    "stb": 25,
+    "pop": 35,
+    "mil": 65,
+    "corr": 80,
+    "econ": "agriculture"
+  },
+  {
+    "id": "sz",
+    "eco": 65,
+    "stb": 75,
+    "pop": 45,
+    "mil": 60,
+    "corr": 50,
+    "econ": "resources"
+  },
+  {
+    "id": "td",
+    "eco": 30,
+    "stb": 35,
+    "pop": 45,
+    "mil": 55,
+    "corr": 80,
+    "econ": "resources"
+  },
+  {
+    "id": "tg",
+    "eco": 40,
+    "stb": 40,
+    "pop": 50,
+    "mil": 55,
+    "corr": 60,
+    "econ": "mixed"
+  },
+  {
+    "id": "th",
+    "eco": 70,
+    "stb": 85,
+    "pop": 60,
+    "mil": 60,
+    "corr": 25,
+    "econ": "services"
+  },
+  {
+    "id": "tj",
+    "eco": 40,
+    "stb": 45,
+    "pop": 45,
+    "mil": 50,
+    "corr": 70,
+    "econ": "resources"
+  },
+  {
+    "id": "tl",
+    "eco": 70,
+    "stb": 75,
+    "pop": 60,
+    "mil": 50,
+    "corr": 25,
+    "econ": "services"
+  },
+  {
+    "id": "tm",
+    "eco": 40,
+    "stb": 45,
+    "pop": 45,
+    "mil": 50,
+    "corr": 70,
+    "econ": "resources"
+  },
+  {
+    "id": "tn",
+    "eco": 40,
+    "stb": 40,
+    "pop": 50,
+    "mil": 55,
+    "corr": 60,
+    "econ": "mixed"
+  },
+  {
+    "id": "to",
+    "eco": 70,
+    "stb": 85,
+    "pop": 60,
+    "mil": 60,
+    "corr": 25,
+    "econ": "services"
+  },
+  {
+    "id": "tr",
+    "eco": 50,
+    "stb": 50,
+    "pop": 50,
+    "mil": 50,
+    "corr": 50,
+    "econ": "mixed"
+  },
+  {
+    "id": "tt",
+    "eco": 70,
+    "stb": 75,
+    "pop": 60,
+    "mil": 50,
+    "corr": 25,
+    "econ": "services"
+  },
+  {
+    "id": "tv",
+    "eco": 70,
+    "stb": 85,
+    "pop": 60,
+    "mil": 60,
+    "corr": 25,
+    "econ": "services"
+  },
+  {
+    "id": "tz",
+    "eco": 40,
+    "stb": 40,
+    "pop": 50,
+    "mil": 55,
+    "corr": 60,
+    "econ": "mixed"
+  },
+  {
+    "id": "ua",
+    "eco": 60,
+    "stb": 60,
+    "pop": 50,
+    "mil": 50,
+    "corr": 40,
+    "econ": "mixed"
+  },
+  {
+    "id": "ug",
+    "eco": 40,
+    "stb": 40,
+    "pop": 50,
+    "mil": 55,
+    "corr": 60,
+    "econ": "mixed"
+  },
+  {
+    "id": "us",
+    "eco": 75,
+    "stb": 60,
+    "pop": 55,
+    "mil": 90,
+    "corr": 35,
+    "econ": "mixed"
+  },
+  {
+    "id": "uy",
+    "eco": 70,
+    "stb": 75,
+    "pop": 60,
+    "mil": 50,
+    "corr": 25,
+    "econ": "services"
+  },
+  {
+    "id": "uz",
+    "eco": 50,
+    "stb": 50,
+    "pop": 50,
+    "mil": 50,
+    "corr": 50,
+    "econ": "mixed"
+  },
+  {
+    "id": "va",
+    "eco": 40,
+    "stb": 55,
+    "pop": 45,
+    "mil": 60,
+    "corr": 70,
+    "econ": "resources"
+  },
+  {
+    "id": "vc",
+    "eco": 70,
+    "stb": 85,
+    "pop": 60,
+    "mil": 60,
+    "corr": 25,
+    "econ": "services"
+  },
+  {
+    "id": "ve",
+    "eco": 15,
+    "stb": 35,
+    "pop": 40,
+    "mil": 45,
+    "corr": 90,
+    "econ": "resources"
+  },
+  {
+    "id": "vn",
+    "eco": 40,
+    "stb": 45,
+    "pop": 45,
+    "mil": 50,
+    "corr": 70,
+    "econ": "resources"
+  },
+  {
+    "id": "vu",
+    "eco": 70,
+    "stb": 75,
+    "pop": 60,
+    "mil": 50,
+    "corr": 25,
+    "econ": "services"
+  },
+  {
+    "id": "ws",
+    "eco": 70,
+    "stb": 75,
+    "pop": 60,
+    "mil": 50,
+    "corr": 25,
+    "econ": "services"
+  },
+  {
+    "id": "ye",
+    "eco": 30,
+    "stb": 25,
+    "pop": 35,
+    "mil": 65,
+    "corr": 80,
+    "econ": "agriculture"
+  },
+  {
+    "id": "za",
+    "eco": 60,
+    "stb": 65,
+    "pop": 60,
+    "mil": 55,
+    "corr": 35,
+    "econ": "agriculture"
+  },
+  {
+    "id": "zm",
+    "eco": 60,
+    "stb": 65,
+    "pop": 60,
+    "mil": 55,
+    "corr": 35,
+    "econ": "agriculture"
+  },
+  {
+    "id": "zw",
+    "eco": 40,
+    "stb": 40,
+    "pop": 50,
+    "mil": 55,
+    "corr": 60,
+    "econ": "mixed"
+  }
+]

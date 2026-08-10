@@ -758,15 +758,27 @@ function initGameSession(country) {
   }
 
   // Fallback to profiles.json, otherwise 50
-  const profile = state.profiles?.[country.id] || {};
+  let profile = {};
+  if (Array.isArray(state.profiles)) {
+    profile = state.profiles.find(p => p.id === country.id) || {};
+  } else if (state.profiles && typeof state.profiles === "object") {
+    profile = state.profiles[country.id] || {};
+  }
+
+  const ecoVal = profile.eco !== undefined ? profile.eco : (profile.economy !== undefined ? profile.economy : 50);
+  const stbVal = profile.stb !== undefined ? profile.stb : (profile.stability !== undefined ? profile.stability : 50);
+  const popVal = profile.pop !== undefined ? profile.pop : (profile.popularity !== undefined ? profile.popularity : 50);
+  const milVal = profile.mil !== undefined ? profile.mil : (profile.military !== undefined ? profile.military : 50);
+  const corrVal = profile.corr !== undefined ? profile.corr : (profile.corruption !== undefined ? profile.corruption : 50);
+
   state.gameState = {
     countryId: country.id,
     stats: {
-      economy: profile.economy !== undefined ? profile.economy : 50,
-      stability: profile.stability !== undefined ? profile.stability : 50,
-      popularity: profile.popularity !== undefined ? profile.popularity : 50,
-      military: profile.military !== undefined ? profile.military : 50,
-      corruption: profile.corruption !== undefined ? profile.corruption : 50
+      economy: ecoVal,
+      stability: stbVal,
+      popularity: popVal,
+      military: milVal,
+      corruption: corrVal
     },
     year: 1,
     decreeCount: 0,
