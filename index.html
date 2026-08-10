@@ -60,7 +60,7 @@
       </div>
     </section>
 
-    <!-- SCREEN 4: GAME SCREEN v1 -->
+    <!-- SCREEN 4: GAME SCREEN -->
     <section id="screen-game" class="screen">
       <div class="screen-header">
         <button id="game-back-btn" class="back-btn" aria-label="Back">⬅</button>
@@ -70,7 +70,7 @@
       </div>
 
       <div class="game-content">
-        <!-- Stat bars starting at 50 -->
+        <!-- Stat bars starting at 50 / profiles -->
         <div class="stats-container">
           <div class="stat-item">
             <div class="stat-label-row">
@@ -114,18 +114,20 @@
 
           <div class="stat-item">
             <div class="stat-label-row">
-              <span class="stat-icon-text">😈 <span data-key="corruption">فساد</span></span>
+              <span class="stat-icon-text">🛑 <span data-key="corruption">فساد</span></span>
               <span id="stat-val-corruption" class="stat-val">50%</span>
             </div>
             <div class="stat-bar-bg">
-              <div id="stat-bar-corruption" class="stat-bar" style="width: 50%;"></div>
+              <div id="stat-bar-corruption" class="stat-bar corruption" style="width: 50%;"></div>
             </div>
           </div>
         </div>
 
-        <!-- Game Simulation & Multi-AI Agent Panel -->
-        <div class="simulation-panel">
-          <div class="advisor-settings">
+        <!-- ديوان القرارات + Game Simulation & Multi-AI Agent Panel -->
+        <div class="decree-panel">
+          <h3 class="panel-title" data-key="decreePanelTitle">ديوان القرارات</h3>
+
+          <div class="advisor-settings" style="margin-bottom: 1rem;">
             <div class="settings-title">
               <span class="advisor-icon">🤖</span>
               <span data-key="advisor_title">مستشارك</span>
@@ -160,12 +162,17 @@
             </div>
           </div>
 
-          <!-- Decree input and submission -->
-          <div class="decree-input-container">
-            <textarea id="decree-textarea" class="decree-textarea" placeholder="اكتب مرسومك هنا لتغيير سياسة الدولة..."></textarea>
-            <button id="decree-submit-btn" class="decree-submit-btn">
-              <span id="btn-submit-text" data-key="submit_decree">إصدار المرسوم 📜</span>
-            </button>
+          <textarea id="decree-input" class="decree-textarea" placeholder="اكتب مرسومك... مثال: مرسوم بدعم الخبز وخفض الضرائب"></textarea>
+
+          <button id="issue-decree-btn" class="issue-btn">
+            <span>🖋️ <span id="issue-btn-text" data-key="issueDecreeBtn">أصدر المرسوم</span></span>
+          </button>
+
+          <div class="quick-chips-container">
+            <button class="quick-chip" data-chip="economic">📊 <span data-key="chipEconomic">اقتصادي</span></button>
+            <button class="quick-chip" data-chip="security">🛡️ <span data-key="chipSecurity">أمني</span></button>
+            <button class="quick-chip" data-chip="diplomatic">🌐 <span data-key="chipDiplomatic">دبلوماسي</span></button>
+            <button class="quick-chip" data-chip="reform">⚖️ <span data-key="chipReform">إصلاح سياسي</span></button>
           </div>
 
           <!-- Narrative Results Panel -->
@@ -177,6 +184,40 @@
             <div id="effects-badge-row" class="effects-badge-row"></div>
           </div>
         </div>
+
+        <!-- سجل الأحداث -->
+        <div class="log-panel">
+          <h3 class="panel-title" data-key="eventLogTitle">📜 سجل الأحداث</h3>
+          <div id="event-log-container" class="event-log">
+            <!-- Dynamic log entries will go here -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCREEN 5: ENDING SCREEN -->
+    <section id="screen-ending" class="screen">
+      <div class="ending-card">
+        <span class="ending-icon">👑</span>
+        <h2 id="ending-title" class="ending-title">قائد تاريخي</h2>
+        <p id="ending-desc" class="ending-desc">لقد نجحت في قيادة الدولة نحو الازدهار والاستقرار.</p>
+
+        <div class="ending-stats">
+          <div class="ending-stat-row">
+            <span data-key="yearLabel">عدد سنوات الحكم:</span>
+            <span id="ending-years-val" class="ending-val">10</span>
+          </div>
+          <div class="ending-stat-row">
+            <span data-key="finalStatsLabel" style="font-weight: 700; color: var(--accent-gold);">الإحصائيات النهائية:</span>
+          </div>
+          <div id="ending-stats-summary" class="ending-stats-summary">
+            <!-- Filled dynamically -->
+          </div>
+        </div>
+
+        <button id="replay-btn" class="replay-btn">
+          <span>🔄 <span data-key="replayBtn">إعادة اللعب</span></span>
+        </button>
       </div>
     </section>
   </main>
