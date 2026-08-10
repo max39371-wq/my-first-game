@@ -1,7 +1,7 @@
 /**
- * Game Engine v1 Configuration and Scripting
+ * Game Engine Configuration and Scripting
  * Handles localizations, asynchronous file fetching and merging, UI rendering, search logic,
- * single page application (SPA) screen toggles, and dummy state progression.
+ * single page application (SPA) screen toggles, and decree-driven simulation progression.
  */
 
 // UI translation objects
@@ -23,6 +23,20 @@ const STRINGS = {
     stability: "استقرار",
     popularity: "شعبية",
     military: "جيش",
+    corruption: "فساد",
+
+    // New strings for simulation
+    decreePanelTitle: "ديوان القرارات",
+    issueDecreeBtn: "أصدر المرسوم",
+    chipEconomic: "اقتصادي",
+    chipSecurity: "أمني",
+    chipDiplomatic: "دبلوماسي",
+    chipReform: "إصلاح سياسي",
+    eventLogTitle: "📜 سجل الأحداث",
+    yearLabel: "السنة",
+    finalStatsLabel: "الإحصائيات النهائية:",
+    replayBtn: "إعادة اللعب",
+    decreePlaceholder: "اكتب مرسومك... مثال: مرسوم بدعم الخبز وخفض الضرائب",
 
     // Attribute labels
     sys: "نظام الحكم",
@@ -119,6 +133,20 @@ const STRINGS = {
     stability: "Stability",
     popularity: "Popularity",
     military: "Military",
+    corruption: "Corruption",
+
+    // New strings for simulation
+    decreePanelTitle: "Decree Council",
+    issueDecreeBtn: "Issue Decree",
+    chipEconomic: "Economic",
+    chipSecurity: "Security",
+    chipDiplomatic: "Diplomatic",
+    chipReform: "Political Reform",
+    eventLogTitle: "📜 Event Log",
+    yearLabel: "Year",
+    finalStatsLabel: "Final Stats:",
+    replayBtn: "Replay",
+    decreePlaceholder: "Write your decree... e.g. Decree to subsidize bread and lower taxes",
 
     // Attribute labels
     sys: "Government System",
@@ -204,10 +232,12 @@ const STRINGS = {
 const state = {
   lang: localStorage.getItem("game_lang") || "ar", // Default to Arabic (ar)
   countries: [], // Loaded countries
+  profiles: {}, // Loaded profiles from data/profiles.json
   currentScreen: "screen-home",
   activeFamily: null, // "republic" or "monarchy" or "search"
   selectedCountry: null,
-  searchQuery: ""
+  searchQuery: "",
+  gameState: null // Current active game state
 };
 
 // Files to fetch
@@ -216,8 +246,75 @@ const DATA_FILES = [
   "data/republics_africa.json",
   "data/republics_americas_oceania.json",
   "data/republics_asia.json",
-  "data/republics_europe.json" // This file might fail, skip gracefully
+  "data/republics_europe.json"
 ];
+
+// Quick Chips Suggestions
+const CHIP_SUGGESTIONS = {
+  ar: {
+    economic: "مرسوم لدعم السلع الأساسية وتنشيط التجارة",
+    security: "مرسوم لتعزيز الأمن ومكافحة الشغب في المدن",
+    diplomatic: "مرسوم لتوقيع معاهدة تجارية وتسهيل حركة المرور",
+    reform: "مرسوم لإجراء إصلاحات سياسية وتعزيز دور المجتمع المدني"
+  },
+  en: {
+    economic: "Decree to subsidize basic goods and boost trade",
+    security: "Decree to enhance security and crack down on riots in cities",
+    diplomatic: "Decree to sign a trade treaty and ease border crossings",
+    reform: "Decree to enact political reforms and empower civil society"
+  }
+};
+
+// Synonym Sets for classification
+const SYNONYMS = {
+  spend: {
+    ar: ["دعم", "زيادة الرواتب", "إنفاق", "سلع", "خبز", "توظيف", "رواتب", "معاشات", "مساعدات", "رعاية", "منح", "مجاني", "تمويل", "بناء", "خدمات", "مستشفيات", "مدارس"],
+    en: ["subsidize", "subsidy", "spend", "increase salaries", "salaries", "welfare", "funding", "grants", "free", "aid", "pension", "invest", "infrastructure", "healthcare", "education", "schools", "hospitals"]
+  },
+  austerity: {
+    ar: ["تقشف", "خفض الإنفاق", "زيادة الضرائب", "ضرائب", "ضريبة", "رسوم", "ترشيد", "تجميد", "تقليل الميزانية", "رفع الدعم", "ضرائب جديدة"],
+    en: ["austerity", "taxes", "tax", "increase taxes", "lower subsidies", "cut spending", "freeze", "reduce budget", "taxation", "budget cut", "reduce deficit"]
+  },
+  crackdown: {
+    ar: ["أمني", "مكافحة", "قمع", "اعتقال", "حظر التجول", "شغب", "طوارئ", "اعتقالات", "فض", "عنف", "تفتيش", "شرطة", "قوات الأمن", "حظر"],
+    en: ["crackdown", "police", "arrest", "curfew", "security operations", "emergency", "suppress", "combat riots", "ban", "detain", "riot", "protest"]
+  },
+  military_build: {
+    ar: ["جيش", "تسليح", "قوات", "صواريخ", "دبابات", "عسكري", "الدفاع", "شراء أسلحة", "صفقات سلاح", "تدريب عسكري", "مناورات", "تعبئة", "عتاد", "طائرات حربية"],
+    en: ["military", "army", "arms", "weapons", "tank", "fighter jet", "missile", "spending", "defense", "rearmament", "soldiers", "navy", "airforce", "warship"]
+  },
+  diplomacy: {
+    ar: ["دبلوماسي", "سفارة", "معاهدة", "سفير", "علاقات", "تحالف", "اتفاقية", "سلام", "وساطة", "مفاوضات", "قمة", "تعاون دولي", "اتفاق"],
+    en: ["diplomacy", "treaty", "embassy", "ambassador", "relations", "alliance", "peace", "summit", "negotiation", "bilateral", "pact", "cooperation", "foreign affairs"]
+  },
+  anti_corruption: {
+    ar: ["فساد", "مكافحة الفساد", "نزاهة", "محاسبة", "محاكمة الفاسدين", "مراقبة", "اعتقال الفاسدين", "كشف الفساد", "شفافية", "قوانين النزاهة", "استرداد الأموال"],
+    en: ["corruption", "anti-corruption", "transparency", "accountability", "fight corruption", "prosecute", "integrity", "audit", "anti corruption", "graft", "embezzlement"]
+  },
+  power_grab: {
+    ar: ["صلاحيات", "تعديل الدستور", "تمديد", "حل البرلمان", "السيطرة", "تركيز السلطة", "مرسوم رئاسي", "تعيين", "سلطات واسعة", "إلغاء الانتخابات", "حالة طوارئ مطلقة", "حصانة"],
+    en: ["power grab", "constitutional amendment", "extend term", "dissolve parliament", "absolute power", "decree power", "consolidate power", "cancel elections", "veto", "dissolve", "bypass"]
+  }
+};
+
+// Economic Sectors Deterministic Classifier
+const SECTORS = ['resources', 'industry', 'trade', 'agriculture', 'services'];
+function getCountrySector(country) {
+  const explicit = {
+    'sa': 'resources', 'dz': 'resources', 'ao': 'resources', 'iq': 'resources', 'kw': 'resources', 'qa': 'resources', 'ae': 'resources', 'om': 'resources', 'bh': 'resources', 'ly': 'resources',
+    'cn': 'industry', 'de': 'industry', 'jp': 'industry', 'kr': 'industry', 'us': 'industry', 'it': 'industry', 'fr': 'industry',
+    'sg': 'trade', 'nl': 'trade', 'pa': 'trade', 'hk': 'trade', 'gb': 'trade',
+    'ua': 'agriculture', 'br': 'agriculture', 'in': 'agriculture', 'vn': 'agriculture', 'eg': 'agriculture',
+    'ch': 'services', 'ky': 'services', 'lu': 'services', 'es': 'services'
+  };
+  if (explicit[country.id]) return explicit[country.id];
+
+  let hash = 0;
+  for (let i = 0; i < country.id.length; i++) {
+    hash += country.id.charCodeAt(i);
+  }
+  return SECTORS[hash % SECTORS.length];
+}
 
 // Initialize application on load
 window.addEventListener("DOMContentLoaded", async () => {
@@ -247,7 +344,8 @@ function translateStaticUI() {
   const dict = STRINGS[state.lang];
 
   // Title
-  document.getElementById("app-title").innerText = dict.appTitle;
+  const appTitleEl = document.getElementById("app-title");
+  if (appTitleEl) appTitleEl.innerText = dict.appTitle;
 
   // Search placeholder
   const searchInput = document.getElementById("search-input");
@@ -255,7 +353,7 @@ function translateStaticUI() {
     searchInput.placeholder = dict.searchPlaceholder;
   }
 
-  // Family Buttons Labels
+  // Family Buttons Labels & Static data-key elements
   document.querySelectorAll("[data-key]").forEach(el => {
     const key = el.getAttribute("data-key");
     if (dict[key]) {
@@ -263,10 +361,10 @@ function translateStaticUI() {
     }
   });
 
-  // Construction text
-  const constructionText = document.getElementById("construction-text");
-  if (constructionText) {
-    constructionText.innerText = dict.constructionText;
+  // Textarea placeholder
+  const decreeInput = document.getElementById("decree-input");
+  if (decreeInput) {
+    decreeInput.placeholder = dict.decreePlaceholder;
   }
 }
 
@@ -292,6 +390,19 @@ async function loadData() {
 
   state.countries = allCountries;
   console.log(`Loaded ${state.countries.length} countries in total.`);
+
+  // Load profiles.json fallback to 50
+  try {
+    const res = await fetch("data/profiles.json");
+    if (res.ok) {
+      state.profiles = await res.json();
+      console.log("Loaded profiles successfully.");
+    } else {
+      console.warn("Could not load profiles.json (Status: " + res.status + ") - falling back to 50.");
+    }
+  } catch (err) {
+    console.warn("Failed fetching profiles.json - falling back to 50:", err);
+  }
 }
 
 // Setup Event Listeners
@@ -365,6 +476,36 @@ function setupEventListeners() {
   document.getElementById("game-back-btn").addEventListener("click", () => {
     navigateTo("screen-card");
   });
+
+  // Setup Quick Chips click event
+  document.querySelectorAll(".quick-chip").forEach(chip => {
+    chip.addEventListener("click", () => {
+      const type = chip.getAttribute("data-chip");
+      const text = CHIP_SUGGESTIONS[state.lang][type];
+      const decreeInput = document.getElementById("decree-input");
+      if (decreeInput && text) {
+        decreeInput.value = text;
+      }
+    });
+  });
+
+  // Issue Decree Button click event
+  const issueBtn = document.getElementById("issue-decree-btn");
+  if (issueBtn) {
+    issueBtn.addEventListener("click", handleIssueDecree);
+  }
+
+  // Replay button click event
+  const replayBtn = document.getElementById("replay-btn");
+  if (replayBtn) {
+    replayBtn.addEventListener("click", () => {
+      if (state.selectedCountry) {
+        localStorage.removeItem(`game_save_${state.selectedCountry.id}`);
+        initGameSession(state.selectedCountry);
+        navigateTo("screen-game");
+      }
+    });
+  }
 }
 
 // Navigation wrapper
@@ -390,7 +531,6 @@ function navigateTo(screenId) {
 function renderCurrentScreen() {
   switch (state.currentScreen) {
     case "screen-home":
-      // Reset any active states if home
       break;
     case "screen-list":
       renderListScreen();
@@ -400,6 +540,9 @@ function renderCurrentScreen() {
       break;
     case "screen-game":
       renderGameScreen();
+      break;
+    case "screen-ending":
+      renderEndingScreen();
       break;
   }
 }
@@ -508,7 +651,6 @@ function renderCardScreen() {
   if (state.lang === "ar") {
     roleLineText = `دورك: ${playerTranslation}`;
     if (country.playerNote) {
-      // If playerNote is localized or a string
       const note = typeof country.playerNote === "object"
         ? (country.playerNote.ar || country.playerNote.en || "")
         : country.playerNote;
@@ -556,8 +698,6 @@ function renderCardScreen() {
   const factsContainer = document.createElement("div");
   factsContainer.className = "card-facts";
 
-  // List of fields that we can map and format:
-  // "sys", "legType", "legPower", "jud", "mil", "parties", "federal", "terms", "royalCourt", "succession"
   const attributes = [
     { key: "sys", label: dict.sys, translateVal: (v) => dict[`sys_${v}`] || v },
     { key: "legType", label: dict.legType, translateVal: (v) => dict[`legType_${v}`] || v },
@@ -599,40 +739,581 @@ function renderCardScreen() {
   startBtn.className = "start-rule-btn";
   startBtn.innerHTML = `<span>${dict.startRule}</span>`;
   startBtn.addEventListener("click", () => {
+    initGameSession(country);
     navigateTo("screen-game");
   });
   container.appendChild(startBtn);
 }
 
-// Screen 4: Render Game Screen v1
+// Initialize active game session (stats, corruption, year, log)
+function initGameSession(country) {
+  const saved = localStorage.getItem(`game_save_${country.id}`);
+  if (saved) {
+    try {
+      state.gameState = JSON.parse(saved);
+      return;
+    } catch (e) {
+      console.error("Failed to parse saved game state, starting fresh", e);
+    }
+  }
+
+  // Fallback to profiles.json, otherwise 50
+  const profile = state.profiles?.[country.id] || {};
+  state.gameState = {
+    countryId: country.id,
+    stats: {
+      economy: profile.economy !== undefined ? profile.economy : 50,
+      stability: profile.stability !== undefined ? profile.stability : 50,
+      popularity: profile.popularity !== undefined ? profile.popularity : 50,
+      military: profile.military !== undefined ? profile.military : 50,
+      corruption: profile.corruption !== undefined ? profile.corruption : 50
+    },
+    year: 1,
+    decreeCount: 0,
+    log: []
+  };
+  saveGameSession();
+}
+
+function saveGameSession() {
+  if (state.gameState && state.selectedCountry) {
+    localStorage.setItem(`game_save_${state.selectedCountry.id}`, JSON.stringify(state.gameState));
+  }
+}
+
+// Screen 4: Render Game Screen
 function renderGameScreen() {
   const dict = STRINGS[state.lang];
   const topBar = document.getElementById("game-top-bar");
 
-  if (!state.selectedCountry) {
+  if (!state.selectedCountry || !state.gameState) {
     topBar.innerHTML = "";
     return;
   }
 
   const country = state.selectedCountry;
+  const gs = state.gameState;
+
   const localizedName = state.lang === "ar" ? (country.name?.ar || country.ar) : (country.name?.en || country.en);
   const playerTypeKey = `player_${country.player}`;
   const playerTranslation = dict[playerTypeKey] || country.player;
 
+  // Add Year Label to top bar dynamically
+  const yearText = state.lang === "ar" ? `السنة ${gs.year}` : `Year ${gs.year}`;
+
   topBar.innerHTML = `
     <span class="game-flag">${country.flag || "🏳️"}</span>
     <div class="game-title-info">
-      <span class="game-country-name">${localizedName}</span>
+      <span class="game-country-name">${localizedName} (${yearText})</span>
       <span class="game-player-role">${playerTranslation}</span>
     </div>
   `;
 
-  // Reset progress bar displays to 50%
-  const stats = ["economy", "stability", "popularity", "military"];
-  stats.forEach(stat => {
+  // Update progress bars
+  const statKeys = ["economy", "stability", "popularity", "military", "corruption"];
+  statKeys.forEach(stat => {
+    const val = gs.stats[stat];
     const bar = document.getElementById(`stat-bar-${stat}`);
     const label = document.getElementById(`stat-val-${stat}`);
-    if (bar) bar.style.width = "50%";
-    if (label) label.innerText = "50%";
+    if (bar) bar.style.width = `${val}%`;
+    if (label) label.innerText = `${val}%`;
   });
+
+  // Render log
+  const logContainer = document.getElementById("event-log-container");
+  if (logContainer) {
+    logContainer.innerHTML = "";
+    if (gs.log.length === 0) {
+      const emptyMsg = document.createElement("p");
+      emptyMsg.style.textAlign = "center";
+      emptyMsg.style.color = "var(--text-muted)";
+      emptyMsg.style.fontSize = "0.9rem";
+      emptyMsg.innerText = state.lang === "ar" ? "لا توجد مراسيم صادرة بعد." : "No decrees issued yet.";
+      logContainer.appendChild(emptyMsg);
+    } else {
+      // Show log in reverse chronological order
+      const reversedLog = [...gs.log].reverse();
+      reversedLog.forEach(entry => {
+        const row = document.createElement("div");
+        row.className = "log-entry";
+
+        const titleText = state.lang === "ar" ? `السنة ${entry.year}: ${escapeHTML(entry.decreeText)}` : `Year ${entry.year}: ${escapeHTML(entry.decreeText)}`;
+        const narrative = state.lang === "ar" ? entry.narrativeAr : entry.narrativeEn;
+        const effectStr = state.lang === "ar" ? entry.effectAr : entry.effectEn;
+
+        row.innerHTML = `
+          <div class="log-entry-year">${titleText}</div>
+          <div class="log-entry-text">${narrative}</div>
+          <div class="log-entry-effect">${effectStr}</div>
+        `;
+        logContainer.appendChild(row);
+      });
+    }
+  }
+
+  // Clear inputs
+  const decreeInput = document.getElementById("decree-input");
+  if (decreeInput) decreeInput.value = "";
+}
+
+// Handle Issuing a Decree
+function handleIssueDecree() {
+  const decreeInput = document.getElementById("decree-input");
+  if (!decreeInput) return;
+
+  const text = decreeInput.value.trim();
+  if (!text) {
+    alert(state.lang === "ar" ? "من فضلك اكتب نص المرسوم أولاً!" : "Please write a decree first!");
+    return;
+  }
+
+  const country = state.selectedCountry;
+  const gs = state.gameState;
+  if (!country || !gs) return;
+
+  // Classify Decree
+  const category = classifyDecree(text);
+
+  // Setup base modifications
+  let eco_ch = 0;
+  let stb_ch = 0;
+  let pop_ch = 0;
+  let mil_ch = 0;
+  let corr_ch = 0;
+
+  let extraLinesAr = [];
+  let extraLinesEn = [];
+
+  const corrFactor = 1 - (gs.stats.corruption / 200);
+
+  switch (category) {
+    case "spend":
+      pop_ch = Math.round(15 * corrFactor);
+      stb_ch = Math.round(10 * corrFactor);
+      eco_ch = -15;
+      break;
+
+    case "austerity":
+      eco_ch = 15;
+      pop_ch = -15;
+      break;
+
+    case "crackdown":
+      stb_ch = 15;
+      pop_ch = -15;
+      if (country.jud === "high") {
+        pop_ch -= 8;
+        extraLinesAr.push("⚖️ القضاء المستقل يدين استخدام القوة المفرطة ويعتبر التدابير غير دستورية!");
+        extraLinesEn.push("⚖️ The independent judiciary condemns the excessive use of force and declares the measures unconstitutional!");
+      }
+      break;
+
+    case "military_build":
+      mil_ch = 15;
+      eco_ch = -12;
+      break;
+
+    case "diplomacy":
+      stb_ch = 12;
+      const sector = getCountrySector(country);
+      if (sector === "trade" || sector === "services") {
+        eco_ch = 10;
+      } else {
+        eco_ch = 3;
+      }
+      break;
+
+    case "anti_corruption":
+      corr_ch = -15;
+      if (country.royalCourt === "high" || country.sys === "one_party" || country.mil === "mixed" || country.mil === "military") {
+        stb_ch = -15;
+        extraLinesAr.push("⚠️ النخبة الحاكمة ومراكز القوى تقاوم تدابير مكافحة الفساد، مما يثير اضطرابات داخلية!");
+        extraLinesEn.push("⚠️ The ruling elites and power centers resist the anti-corruption measures, stirring internal instability!");
+      }
+      break;
+
+    case "power_grab":
+      stb_ch = 15;
+      pop_ch = -15;
+      if (country.legPower === "high") {
+        stb_ch -= 5;
+        pop_ch -= 5;
+        extraLinesAr.push("🗳️ البرلمان ذو السلطة العالية يعترض على تركيز السلطة، وهناك خطر متزايد لسحب الثقة!");
+        extraLinesEn.push("🗳️ The high-power parliament objects to the concentration of power, posing an imminent risk of a no-confidence vote!");
+      }
+      if (country.jud === "high") {
+        stb_ch -= 5;
+        extraLinesAr.push("⚖️ القضاة المستقلون يعلنون إضراباً عاماً احتجاجاً على المساس بالدستور وفصل السلطات!");
+        extraLinesEn.push("⚖️ Independent judges declare a nationwide strike in protest against the constitutional violations and erosion of separation of powers!");
+      }
+      break;
+
+    case "unknown":
+    default:
+      // small drift -3 to +3
+      eco_ch = Math.floor(Math.random() * 7) - 3;
+      stb_ch = Math.floor(Math.random() * 7) - 3;
+      pop_ch = Math.floor(Math.random() * 7) - 3;
+      mil_ch = Math.floor(Math.random() * 7) - 3;
+      corr_ch = Math.floor(Math.random() * 7) - 3;
+      break;
+  }
+
+  // Category Narratives
+  const NARRATIVES = {
+    spend: {
+      ar: "تم إصدار مرسوم بزيادة الإنفاق الاجتماعي ودعم السلع الأساسية لمساعدة المواطنين.",
+      en: "Issued a decree increasing social spending and subsidizing basic goods to assist citizens."
+    },
+    austerity: {
+      ar: "تم فرض إجراءات تقشفية صارمة لخفض عجز الموازنة العامة وحماية العملة.",
+      en: "Enforced strict austerity measures to reduce the budget deficit and protect the currency."
+    },
+    crackdown: {
+      ar: "تم إعلان حملة أمنية واسعة النطاق لفرض النظام العام والحد من التجمعات والاحتجاجات.",
+      en: "Declared a large-scale security crackdown to enforce public order and limit assemblies and protests."
+    },
+    military_build: {
+      ar: "تم تخصيص اعتمادات إضافية لشراء الأسلحة وتحديث المعدات ورفع جاهزية القوات المسلحة.",
+      en: "Allocated additional funds for weapon procurement, equipment modernization, and military readiness."
+    },
+    diplomacy: {
+      ar: "تم توقيع اتفاقيات دبلوماسية جديدة لتعزيز مكانة الدولة وتوطيد العلاقات الدولية.",
+      en: "Signed new diplomatic treaties to elevate the state's status and strengthen international relations."
+    },
+    anti_corruption: {
+      ar: "تم إطلاق حملة نزاهة وطنية لملاحقة قضايا الرشوة ومراجعة العقود الحكومية المشبوهة.",
+      en: "Launched a national integrity campaign to prosecute bribery cases and audit suspicious government contracts."
+    },
+    power_grab: {
+      ar: "تم تفعيل مراسيم استثنائية لتركيز الصلاحيات وتعديل القواعد لتوسيع نفوذ السلطة التنفيذية.",
+      en: "Activated exceptional decrees to centralize authority and amend rules to expand executive power."
+    },
+    unknown: {
+      ar: "❓ المرسوم غير واضح أو غير مصنف. البيروقراطية تواجه صعوبة في التنفيذ وتطلب توجيهات أكثر وضوحاً.",
+      en: "❓ The decree is ambiguous or unclassified. The bureaucracy struggles to implement it and requests clearer orders."
+    }
+  };
+
+  // Econ-flavor lines
+  const ECON_FLAVORS = {
+    resources: {
+      ar: "🛢️ تقلبات أسعار الموارد في الأسواق العالمية تؤثر على الميزانية العامة.",
+      en: "🛢️ Volatility in resource prices in global markets impacts the national budget."
+    },
+    industry: {
+      ar: "🏭 المصانع الوطنية تسجل مستويات إنتاج جديدة تماشياً مع خطة التطوير.",
+      en: "🏭 National factories record new output levels in line with the development plan."
+    },
+    trade: {
+      ar: "🚢 حركة الملاحة في الموانئ التجارية تسجل نشاطاً قياسياً هذا العام.",
+      en: "🚢 Shipping traffic at commercial ports records peak activity this year."
+    },
+    agriculture: {
+      ar: "🌾 تقارير مواسم الحصاد تشير إلى إنتاج زراعي مستقر يغطي الاحتياجات الأساسية.",
+      en: "🌾 Harvest season reports indicate stable agricultural yields covering basic needs."
+    },
+    services: {
+      ar: "📈 قطاع الخدمات والسياحة يسجل نمواً ملحوظاً مع بداية الموسم الجديد.",
+      en: "📈 The services and tourism sector registers solid growth at the start of the new season."
+    }
+  };
+
+  const cSector = getCountrySector(country);
+  const econFlavorAr = ECON_FLAVORS[cSector].ar;
+  const econFlavorEn = ECON_FLAVORS[cSector].en;
+
+  // Build narrative
+  let finalNarrativeAr = NARRATIVES[category].ar;
+  let finalNarrativeEn = NARRATIVES[category].en;
+
+  if (extraLinesAr.length > 0) {
+    finalNarrativeAr += " " + extraLinesAr.join(" ");
+    finalNarrativeEn += " " + extraLinesEn.join(" ");
+  }
+
+  // Append economic flavor line
+  finalNarrativeAr += " " + econFlavorAr;
+  finalNarrativeEn += " " + econFlavorEn;
+
+  // Apply changes with clamping 0-100
+  gs.stats.economy = Math.max(0, Math.min(100, gs.stats.economy + eco_ch));
+  gs.stats.stability = Math.max(0, Math.min(100, gs.stats.stability + stb_ch));
+  gs.stats.popularity = Math.max(0, Math.min(100, gs.stats.popularity + pop_ch));
+  gs.stats.military = Math.max(0, Math.min(100, gs.stats.military + mil_ch));
+  gs.stats.corruption = Math.max(0, Math.min(100, gs.stats.corruption + corr_ch));
+
+  // Construct effect line
+  const formatChange = (val, symbol) => {
+    if (val === 0) return "";
+    return `${symbol} ${val > 0 ? "+" : ""}${val}`;
+  };
+
+  const effects = [
+    formatChange(eco_ch, "💰"),
+    formatChange(stb_ch, "⚖️"),
+    formatChange(pop_ch, "📣"),
+    formatChange(mil_ch, "🎖️"),
+    formatChange(corr_ch, "🛑")
+  ].filter(Boolean).join(" | ");
+
+  const effectAr = effects || "لا توجد تأثيرات مباشرة على المؤشرات العامة.";
+  const effectEn = effects || "No direct impacts on main indicators.";
+
+  // Save to Log
+  gs.log.push({
+    year: gs.year,
+    decreeText: text,
+    narrativeAr: finalNarrativeAr,
+    narrativeEn: finalNarrativeEn,
+    effectAr: effectAr,
+    effectEn: effectEn
+  });
+
+  // Increment year & decree count
+  gs.year += 1;
+  gs.decreeCount += 1;
+
+  // Save State
+  saveGameSession();
+
+  // Re-render game screen to animate bars and display log
+  renderGameScreen();
+
+  // Check Endings
+  setTimeout(() => {
+    checkGameEndings();
+  }, 400); // Small timeout to allow transition/animations to complete
+}
+
+// Check Endings (stats 0, corruption >= 90, or after 10 decrees)
+function checkGameEndings() {
+  const gs = state.gameState;
+  if (!gs) return;
+
+  // 1. Instantly trigger collapse/fall if any stat reaches 0 or corr >= 90
+  if (gs.stats.economy <= 0) {
+    triggerEnding("collapse_economy");
+  } else if (gs.stats.stability <= 0) {
+    triggerEnding("collapse_stability");
+  } else if (gs.stats.popularity <= 0) {
+    triggerEnding("collapse_popularity");
+  } else if (gs.stats.military <= 0) {
+    triggerEnding("collapse_military");
+  } else if (gs.stats.corruption >= 90) {
+    triggerEnding("collapse_corruption");
+  } else if (gs.decreeCount >= 10) {
+    // 2. Win or Tenure end after 10 decrees
+    if (gs.stats.economy >= 70 && gs.stats.stability >= 70 && gs.stats.popularity >= 70 && gs.stats.corruption < 30) {
+      triggerEnding("historical_leader");
+    } else if (gs.stats.popularity < 40) {
+      triggerEnding("hated_leader");
+    } else if (gs.stats.economy < 40) {
+      triggerEnding("bankrupt_treasury");
+    } else if (gs.stats.stability < 40) {
+      triggerEnding("lost_control");
+    } else if (gs.stats.military < 40) {
+      triggerEnding("palace_coup");
+    } else {
+      triggerEnding("political_survivor");
+    }
+  }
+}
+
+// Trigger specific ending screen
+function triggerEnding(endingId) {
+  state.currentEndingId = endingId;
+  navigateTo("screen-ending");
+}
+
+// Screen 5: Render Ending Screen
+function renderEndingScreen() {
+  const dict = STRINGS[state.lang];
+  const gs = state.gameState;
+  const endingId = state.currentEndingId;
+
+  if (!gs || !endingId) return;
+
+  // Clear save game when ending is reached
+  if (state.selectedCountry) {
+    localStorage.removeItem(`game_save_${state.selectedCountry.id}`);
+  }
+
+  const ENDING_DETAILS = {
+    collapse_economy: {
+      icon: "💸",
+      title: { ar: "خزينة مفلسة / انهيار اقتصادي", en: "Bankrupt Treasury / Economic Collapse" },
+      desc: {
+        ar: "أفلست الخزينة العامة وعجزت الدولة عن دفع الرواتب والديون، مما أدى إلى انهيار اقتصادي كامل وسقوط نظام الحكم.",
+        en: "The public treasury went bankrupt and the state failed to pay salaries or debts, leading to a complete economic collapse and system fall."
+      }
+    },
+    collapse_stability: {
+      icon: "🔥",
+      title: { ar: "فوضى عارمة واضطراب عام", en: "Total Chaos and Disruption" },
+      desc: {
+        ar: "تلاشت هيبة الدولة وانتشرت الفوضى والنزاعات المسلحة في المدن، وفقدت السلطة السيطرة تماماً على مفاصل الحكم.",
+        en: "State authority vanished, and armed conflicts and chaos spread through cities, leaving the government entirely powerless."
+      }
+    },
+    collapse_popularity: {
+      icon: "📢",
+      title: { ar: "ثورة شعبية كبرى", en: "Great Popular Revolution" },
+      desc: {
+        ar: "خرجت الجماهير الغاضبة إلى الشوارع في احتجاجات عارمة أطاحت بنظام الحكم بالكامل بسبب تدهور أحوالهم المعيشية.",
+        en: "Furious crowds flooded the streets in massive protests, completely overthrowing the ruling regime due to deteriorating life conditions."
+      }
+    },
+    collapse_military: {
+      icon: "⚔️",
+      title: { ar: "انقلاب عسكري مطبق", en: "Direct Military Coup" },
+      desc: {
+        ar: "أصبح الجيش ضعيفاً للغاية وعاجزاً عن حماية الدولة، مما شجع قادة الوحدات على التحرك والانقلاب على سلطتك.",
+        en: "The military became extremely weak and unable to protect the state, encouraging division commanders to depose your rule."
+      }
+    },
+    collapse_corruption: {
+      icon: "🛑",
+      title: { ar: "انهيار مؤسساتي", en: "Institutional Collapse" },
+      desc: {
+        ar: "استشرى الفساد في مفاصل الدولة بالكامل وتلاشت فاعلية المؤسسات، مما أدى إلى سقوط نظام الحكم والتحكم النخبوي.",
+        en: "Corruption completely consumed all state organs and institutional efficacy vanished, triggering a total collapse of the system."
+      }
+    },
+    historical_leader: {
+      icon: "👑",
+      title: { ar: "قائد تاريخي عظيم", en: "Great Historical Leader" },
+      desc: {
+        ar: "لقد حفرت اسمك بمداد من ذهب كأحد أعظم القادة الذين حققوا الرخاء الاقتصادي والأمن ومحاربة الفساد بكفاءة نادرة.",
+        en: "You have engraved your name in gold as one of the greatest leaders, achieving economic prosperity, security, and integrity."
+      }
+    },
+    hated_leader: {
+      icon: "👿",
+      title: { ar: "مكروه من الشعب", en: "Hated by the People" },
+      desc: {
+        ar: "نجحت في الحفاظ على استقرار مؤسسات الدولة ولكن الشعب يحمل لك ضغينة كبيرة بسبب سياستك الصارمة والتقشف المفرط.",
+        en: "The state stabilized, but the people bear immense resentment towards you due to your harsh and austere policies."
+      }
+    },
+    bankrupt_treasury: {
+      icon: "📉",
+      title: { ar: "خزينة مفلسة", en: "Bankrupt Treasury" },
+      desc: {
+        ar: "رغم شعبيتك الكبيرة واستقرار الحكم، إلا أن خزينة الدولة أفرغت تماماً وأصبحت البلاد على حافة الانهيار المالي الشامل.",
+        en: "Despite your popularity and stability, the state treasury has been entirely drained, placing the country on the verge of financial collapse."
+      }
+    },
+    lost_control: {
+      icon: "🌀",
+      title: { ar: "فاقد السيطرة والقيادة", en: "Lost Control" },
+      desc: {
+        ar: "فقدت التحكم في مفاصل الدولة والوزارات وانتشرت الاضطرابات الداخلية في الأقاليم، رغم شعبية بعض قراراتك الاجتماعية.",
+        en: "You lost control of state institutions, and internal disturbances spread despite the popularity of some of your decrees."
+      }
+    },
+    palace_coup: {
+      icon: "🏰",
+      title: { ar: "انقلاب في القصر", en: "Palace Coup" },
+      desc: {
+        ar: "نجحت في الحفاظ على تماسك الاقتصاد، لكن إهمالك الطويل للمؤسسة العسكرية دفع القادة لعزلك في انقلاب صامت داخل القصر.",
+        en: "You managed to protect the economy, but neglecting the military apparatus prompted commanders to depose you in a silent coup."
+      }
+    },
+    political_survivor: {
+      icon: "🛡️",
+      title: { ar: "ناجٍ سياسي محنك", en: "Political Survivor" },
+      desc: {
+        ar: "لقد واجهت العواصف وتغلبت على الأزمات المعقدة لتنهي فترة حكمك بنجاح نسبي، مبرهناً على براعة سياسية كبيرة.",
+        en: "You weathered the storms and navigated complex crises, successfully finishing your reign, showing robust political capability."
+      }
+    }
+  };
+
+  const end = ENDING_DETAILS[endingId] || ENDING_DETAILS.political_survivor;
+
+  // Set values
+  document.querySelector(".ending-icon").innerText = end.icon;
+  document.getElementById("ending-title").innerText = state.lang === "ar" ? end.title.ar : end.title.en;
+  document.getElementById("ending-desc").innerText = state.lang === "ar" ? end.desc.ar : end.desc.en;
+
+  // Years value
+  // Years governed is count of decrees issued
+  document.getElementById("ending-years-val").innerText = gs.decreeCount;
+
+  // Draw final stats summary
+  const summaryEl = document.getElementById("ending-stats-summary");
+  if (summaryEl) {
+    summaryEl.innerHTML = "";
+    const statsMeta = [
+      { key: "economy", icon: "💰", name: dict.economy },
+      { key: "stability", icon: "⚖️", name: dict.stability },
+      { key: "popularity", icon: "📣", name: dict.popularity },
+      { key: "military", icon: "🎖️", name: dict.military },
+      { key: "corruption", icon: "🛑", name: dict.corruption }
+    ];
+
+    statsMeta.forEach(meta => {
+      const item = document.createElement("div");
+      item.className = "ending-summary-item";
+      item.innerHTML = `
+        <span class="ending-summary-label">${meta.icon} ${meta.name}</span>
+        <span class="ending-summary-val">${gs.stats[meta.key]}%</span>
+      `;
+      summaryEl.appendChild(item);
+    });
+  }
+}
+
+// Escapes HTML special characters to prevent Self-XSS
+function escapeHTML(str) {
+  return str
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}
+
+// Simple deterministic synonym-based classifier
+function classifyDecree(text) {
+  const t = text.toLowerCase().trim();
+  if (!t) return "unknown";
+
+  const scores = {
+    spend: 0,
+    austerity: 0,
+    crackdown: 0,
+    military_build: 0,
+    diplomacy: 0,
+    anti_corruption: 0,
+    power_grab: 0
+  };
+
+  for (const category of Object.keys(SYNONYMS)) {
+    // Check Arabic synonyms
+    for (const syn of SYNONYMS[category].ar) {
+      if (t.includes(syn.toLowerCase())) {
+        scores[category] += 1;
+      }
+    }
+    // Check English synonyms
+    for (const syn of SYNONYMS[category].en) {
+      if (t.includes(syn.toLowerCase())) {
+        scores[category] += 1;
+      }
+    }
+  }
+
+  let bestCategory = "unknown";
+  let maxScore = 0;
+
+  for (const category of Object.keys(scores)) {
+    if (scores[category] > maxScore) {
+      maxScore = scores[category];
+      bestCategory = category;
+    }
+  }
+
+  return bestCategory;
 }

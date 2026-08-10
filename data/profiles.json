@@ -1,0 +1,11 @@
+{
+  "dz": { "economy": 55, "stability": 60, "popularity": 50, "military": 70, "corruption": 45 },
+  "gb": { "economy": 65, "stability": 75, "popularity": 45, "military": 50, "corruption": 15 },
+  "eg": { "economy": 45, "stability": 55, "popularity": 50, "military": 65, "corruption": 50 },
+  "us": { "economy": 70, "stability": 65, "popularity": 40, "military": 85, "corruption": 20 },
+  "fr": { "economy": 60, "stability": 55, "popularity": 45, "military": 60, "corruption": 25 },
+  "cn": { "economy": 80, "stability": 85, "popularity": 70, "military": 75, "corruption": 35 },
+  "ru": { "economy": 50, "stability": 70, "popularity": 65, "military": 80, "corruption": 55 },
+  "sa": { "economy": 75, "stability": 80, "popularity": 60, "military": 65, "corruption": 30 },
+  "jp": { "economy": 70, "stability": 85, "popularity": 55, "military": 45, "corruption": 10 }
+}
