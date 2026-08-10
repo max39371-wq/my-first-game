@@ -23,6 +23,18 @@ const STRINGS = {
     stability: "استقرار",
     popularity: "شعبية",
     military: "جيش",
+    corruption: "فساد",
+
+    // Advisor strings
+    advisor_title: "🤖 مستشارك",
+    opt_local: "المستشار المحلي — مجاني",
+    api_key_note: "مفتاحك يبقى في متصفحك فقط",
+    submit_decree: "إصدار المرسوم 📜",
+    submitting: "جاري استشارة المستشار... ⏳",
+    apiKeyPlaceholder: "أدخل مفتاح الـ API لـ {provider}...",
+    decreePlaceholder: "اكتب مرسومك هنا لتغيير سياسة الدولة...",
+    local_advisor_badge: "🤖 المستشار المحلي",
+    err_api: "تعذر الاتصال بالمستشار البعيد. تم استخدام المستشار المحلي كبديل تلقائي.",
 
     // Attribute labels
     sys: "نظام الحكم",
@@ -119,6 +131,18 @@ const STRINGS = {
     stability: "Stability",
     popularity: "Popularity",
     military: "Military",
+    corruption: "Corruption",
+
+    // Advisor strings
+    advisor_title: "🤖 Your Advisor",
+    opt_local: "Local Advisor — Free",
+    api_key_note: "Your key stays in your browser only",
+    submit_decree: "Issue Decree 📜",
+    submitting: "Consulting advisor... ⏳",
+    apiKeyPlaceholder: "Enter API key for {provider}...",
+    decreePlaceholder: "Write your decree here to change state policy...",
+    local_advisor_badge: "🤖 Local Advisor",
+    err_api: "Could not reach remote advisor. Local advisor was used as a fallback.",
 
     // Attribute labels
     sys: "Government System",
@@ -207,7 +231,17 @@ const state = {
   currentScreen: "screen-home",
   activeFamily: null, // "republic" or "monarchy" or "search"
   selectedCountry: null,
-  searchQuery: ""
+  searchQuery: "",
+
+  // Game session stats
+  currentStats: {
+    eco: 50,
+    stb: 50,
+    pop: 50,
+    mil: 50,
+    corr: 50
+  },
+  profiles: {} // Map country id -> profile object
 };
 
 // Files to fetch
@@ -263,10 +297,38 @@ function translateStaticUI() {
     }
   });
 
-  // Construction text
-  const constructionText = document.getElementById("construction-text");
-  if (constructionText) {
-    constructionText.innerText = dict.constructionText;
+  // Update advisor labels and placeholder elements if on Screen 4
+  const advisorSelect = document.getElementById("advisor-select");
+  if (advisorSelect) {
+    const optLocal = advisorSelect.querySelector('option[value="local"]');
+    if (optLocal) optLocal.innerText = dict.opt_local;
+  }
+
+  const apiKeyInput = document.getElementById("api-key-input");
+  if (apiKeyInput) {
+    const provider = advisorSelect ? advisorSelect.value : "local";
+    apiKeyInput.placeholder = dict.apiKeyPlaceholder.replace("{provider}", provider.toUpperCase());
+  }
+
+  const decreeTextarea = document.getElementById("decree-textarea");
+  if (decreeTextarea) {
+    decreeTextarea.placeholder = dict.decreePlaceholder;
+  }
+
+  const submitText = document.getElementById("btn-submit-text");
+  if (submitText) {
+    const isSubmitting = document.getElementById("decree-submit-btn")?.disabled;
+    submitText.innerText = isSubmitting ? dict.submitting : dict.submit_decree;
+  }
+
+  const keyNote = document.querySelector('[data-key="api_key_note"]');
+  if (keyNote) {
+    keyNote.innerText = dict.api_key_note;
+  }
+
+  const advisorTitle = document.querySelector('[data-key="advisor_title"]');
+  if (advisorTitle) {
+    advisorTitle.innerText = dict.advisor_title;
   }
 }
 
@@ -292,6 +354,24 @@ async function loadData() {
 
   state.countries = allCountries;
   console.log(`Loaded ${state.countries.length} countries in total.`);
+
+  // Load profiles
+  try {
+    const profRes = await fetch("data/profiles.json");
+    if (profRes.ok) {
+      const profilesArray = await profRes.json();
+      if (Array.isArray(profilesArray)) {
+        profilesArray.forEach(p => {
+          if (p.id) {
+            state.profiles[p.id] = p;
+          }
+        });
+        console.log(`Loaded ${profilesArray.length} country profiles.`);
+      }
+    }
+  } catch (err) {
+    console.error("Failed loading country profiles:", err);
+  }
 }
 
 // Setup Event Listeners
@@ -365,6 +445,61 @@ function setupEventListeners() {
   document.getElementById("game-back-btn").addEventListener("click", () => {
     navigateTo("screen-card");
   });
+
+  // Screen 4 advisor selection change
+  const advisorSelect = document.getElementById("advisor-select");
+  if (advisorSelect) {
+    advisorSelect.addEventListener("change", (e) => {
+      const selected = e.target.value;
+      localStorage.setItem("game_advisor", selected);
+
+      const dict = STRINGS[state.lang];
+      const keyInput = document.getElementById("api-key-input");
+      if (keyInput) {
+        keyInput.placeholder = dict.apiKeyPlaceholder.replace("{provider}", selected.toUpperCase());
+        // Load stored key
+        keyInput.value = localStorage.getItem(`game_api_key_${selected}`) || "";
+      }
+
+      // Toggle display containers
+      const apiKeyContainer = document.getElementById("api-key-container");
+      if (apiKeyContainer) {
+        apiKeyContainer.style.display = selected === "local" ? "none" : "block";
+      }
+
+      const openrouterContainer = document.getElementById("openrouter-model-container");
+      if (openrouterContainer) {
+        openrouterContainer.style.display = selected === "openrouter" ? "block" : "none";
+      }
+    });
+  }
+
+  // API Key input change persistence
+  const apiKeyInput = document.getElementById("api-key-input");
+  if (apiKeyInput) {
+    apiKeyInput.addEventListener("input", (e) => {
+      const selectedAdvisor = advisorSelect ? advisorSelect.value : "local";
+      if (selectedAdvisor !== "local") {
+        localStorage.setItem(`game_api_key_${selectedAdvisor}`, e.target.value);
+      }
+    });
+  }
+
+  // OpenRouter model select persistence
+  const orModelSelect = document.getElementById("openrouter-model-select");
+  if (orModelSelect) {
+    orModelSelect.addEventListener("change", (e) => {
+      localStorage.setItem("game_openrouter_model", e.target.value);
+    });
+  }
+
+  // Decree submission handling
+  const submitBtn = document.getElementById("decree-submit-btn");
+  if (submitBtn) {
+    submitBtn.addEventListener("click", async () => {
+      await handleDecreeSubmit();
+    });
+  }
 }
 
 // Navigation wrapper
@@ -627,12 +762,246 @@ function renderGameScreen() {
     </div>
   `;
 
-  // Reset progress bar displays to 50%
-  const stats = ["economy", "stability", "popularity", "military"];
-  stats.forEach(stat => {
-    const bar = document.getElementById(`stat-bar-${stat}`);
-    const label = document.getElementById(`stat-val-${stat}`);
-    if (bar) bar.style.width = "50%";
-    if (label) label.innerText = "50%";
-  });
+  // Determine starting stats for the country from profiles
+  const profile = state.profiles[country.id];
+  if (profile) {
+    state.currentStats = {
+      eco: profile.eco !== undefined ? profile.eco : 50,
+      stb: profile.stb !== undefined ? profile.stb : 50,
+      pop: profile.pop !== undefined ? profile.pop : 50,
+      mil: profile.mil !== undefined ? profile.mil : 50,
+      corr: profile.corr !== undefined ? profile.corr : 50
+    };
+  } else {
+    // Fallback if no profile is loaded
+    state.currentStats = { eco: 50, stb: 50, pop: 50, mil: 50, corr: 50 };
+  }
+
+  // Set initial UI elements
+  updateStatsUI();
+
+  // Load advisor settings from localStorage or default to local
+  const savedAdvisor = localStorage.getItem("game_advisor") || "local";
+  const advisorSelect = document.getElementById("advisor-select");
+  if (advisorSelect) {
+    advisorSelect.value = savedAdvisor;
+  }
+
+  const apiKeyInput = document.getElementById("api-key-input");
+  if (apiKeyInput) {
+    apiKeyInput.value = localStorage.getItem(`game_api_key_${savedAdvisor}`) || "";
+    apiKeyInput.placeholder = dict.apiKeyPlaceholder.replace("{provider}", savedAdvisor.toUpperCase());
+  }
+
+  const apiKeyContainer = document.getElementById("api-key-container");
+  if (apiKeyContainer) {
+    apiKeyContainer.style.display = savedAdvisor === "local" ? "none" : "block";
+  }
+
+  const openrouterContainer = document.getElementById("openrouter-model-container");
+  if (openrouterContainer) {
+    openrouterContainer.style.display = savedAdvisor === "openrouter" ? "block" : "none";
+  }
+
+  const openrouterModelSelect = document.getElementById("openrouter-model-select");
+  if (openrouterModelSelect) {
+    openrouterModelSelect.value = localStorage.getItem("game_openrouter_model") || "x-ai/grok-3-mini";
+  }
+
+  // Reset decree input
+  const decreeTextarea = document.getElementById("decree-textarea");
+  if (decreeTextarea) {
+    decreeTextarea.value = "";
+    decreeTextarea.placeholder = dict.decreePlaceholder;
+  }
+
+  // Hide the previous result panel on initial render
+  const resultPanel = document.getElementById("narrative-result-panel");
+  if (resultPanel) {
+    resultPanel.style.display = "none";
+  }
+}
+
+/**
+ * Updates UI stats progress bars & numeric texts
+ */
+function updateStatsUI() {
+  const statsMap = {
+    economy: state.currentStats.eco,
+    stability: state.currentStats.stb,
+    popularity: state.currentStats.pop,
+    military: state.currentStats.mil,
+    corruption: state.currentStats.corr
+  };
+
+  for (const [key, val] of Object.entries(statsMap)) {
+    const bar = document.getElementById(`stat-bar-${key}`);
+    const label = document.getElementById(`stat-val-${key}`);
+    if (bar) {
+      bar.style.width = `${val}%`;
+    }
+    if (label) {
+      label.innerText = `${val}%`;
+    }
+  }
+}
+
+/**
+ * Validates normalized output format
+ */
+function validateOutput(data) {
+  if (!data) return false;
+  if (typeof data.nar_ar !== "string" || data.nar_ar.trim() === "") return false;
+  if (typeof data.nar_en !== "string" || data.nar_en.trim() === "") return false;
+  if (!data.fx) return false;
+
+  const keys = ["eco", "stb", "pop", "mil", "corr"];
+  for (const k of keys) {
+    const v = data.fx[k];
+    if (typeof v !== "number" || isNaN(v)) return false;
+    if (v < -15 || v > 15) return false;
+  }
+
+  return true;
+}
+
+/**
+ * Formats provider name into clean badge title
+ */
+function getAdvisorBadgeLabel(provider, success) {
+  const dict = STRINGS[state.lang];
+  if (!success || provider === "local") {
+    return dict.local_advisor_badge;
+  }
+  // Map remote provider to stylized label
+  const pMap = {
+    gemini: "🤖 Gemini",
+    claude: "🤖 Claude",
+    openai: "🤖 OpenAI",
+    deepseek: "🤖 DeepSeek",
+    openrouter: "🤖 OpenRouter"
+  };
+  return pMap[provider] || `🤖 ${provider.toUpperCase()}`;
+}
+
+/**
+ * Handle Decree submit logic
+ */
+async function handleDecreeSubmit() {
+  const dict = STRINGS[state.lang];
+  const decreeTextarea = document.getElementById("decree-textarea");
+  const submitBtn = document.getElementById("decree-submit-btn");
+  const submitText = document.getElementById("btn-submit-text");
+  const advisorSelect = document.getElementById("advisor-select");
+  const orModelSelect = document.getElementById("openrouter-model-select");
+
+  if (!decreeTextarea || !submitBtn || !state.selectedCountry) return;
+
+  const decreeVal = decreeTextarea.value.trim();
+  if (!decreeVal) return;
+
+  const provider = advisorSelect ? advisorSelect.value : "local";
+  const model = orModelSelect ? orModelSelect.value : "x-ai/grok-3-mini";
+  const apiKey = localStorage.getItem(`game_api_key_${provider}`) || "";
+
+  // Set submitting states
+  decreeTextarea.disabled = true;
+  submitBtn.disabled = true;
+  if (submitText) {
+    submitText.innerText = dict.submitting;
+  }
+
+  // Construct simulation payload
+  const payload = {
+    countryCard: state.selectedCountry,
+    currentStats: state.currentStats,
+    decree: decreeVal
+  };
+
+  let finalResult = null;
+  let useFallback = false;
+
+  if (provider === "local") {
+    finalResult = window.runLocalSimulation(payload);
+  } else {
+    try {
+      finalResult = await window.askAgent(provider, payload, apiKey, model);
+      if (!validateOutput(finalResult)) {
+        throw new Error("Invalid output received from advisor");
+      }
+    } catch (err) {
+      console.warn("Error calling agent, falling back to local simulation:", err);
+      useFallback = true;
+      // Fail silently and run local simulation
+      finalResult = window.runLocalSimulation(payload);
+    }
+  }
+
+  // Apply narrative, badges and stats
+  const resultPanel = document.getElementById("narrative-result-panel");
+  const advisorBadge = document.getElementById("advisor-badge");
+  const narrativeText = document.getElementById("narrative-text");
+  const effectsBadgeRow = document.getElementById("effects-badge-row");
+
+  if (resultPanel) {
+    resultPanel.style.display = "block";
+  }
+
+  // Set Badge
+  if (advisorBadge) {
+    advisorBadge.innerText = getAdvisorBadgeLabel(provider, !useFallback);
+    // Style badge differently for fallback
+    if (useFallback && provider !== "local") {
+      advisorBadge.classList.add("fallback-badge");
+      advisorBadge.title = dict.err_api;
+    } else {
+      advisorBadge.classList.remove("fallback-badge");
+      advisorBadge.removeAttribute("title");
+    }
+  }
+
+  // Set Narrative Text based on current active language
+  if (narrativeText) {
+    const textVal = state.lang === "ar" ? finalResult.nar_ar : finalResult.nar_en;
+    narrativeText.innerText = textVal;
+  }
+
+  // Render change effects badges
+  if (effectsBadgeRow) {
+    effectsBadgeRow.innerHTML = "";
+    const statLabels = {
+      eco: "💰",
+      stb: "⚖️",
+      pop: "📣",
+      mil: "🎖️",
+      corr: "😈"
+    };
+
+    for (const [k, v] of Object.entries(finalResult.fx)) {
+      if (v !== 0) {
+        const badgeSpan = document.createElement("span");
+        const sign = v > 0 ? "+" : "";
+        badgeSpan.className = `effect-badge ${v > 0 ? "positive" : "negative"}`;
+        badgeSpan.innerText = `${statLabels[k] || ""} ${sign}${v}`;
+        effectsBadgeRow.appendChild(badgeSpan);
+      }
+    }
+  }
+
+  // Apply stat impacts & clamp between [0, 100]
+  state.currentStats.eco = Math.min(100, Math.max(0, state.currentStats.eco + finalResult.fx.eco));
+  state.currentStats.stb = Math.min(100, Math.max(0, state.currentStats.stb + finalResult.fx.stb));
+  state.currentStats.pop = Math.min(100, Math.max(0, state.currentStats.pop + finalResult.fx.pop));
+  state.currentStats.mil = Math.min(100, Math.max(0, state.currentStats.mil + finalResult.fx.mil));
+  state.currentStats.corr = Math.min(100, Math.max(0, state.currentStats.corr + finalResult.fx.corr));
+
+  // Update UI progress bars
+  updateStatsUI();
+
+  // Reset submit buttons states
+  decreeTextarea.disabled = false;
+  submitBtn.disabled = false;
+  if (submitText) {
+    submitText.innerText = dict.submit_decree;
+  }
 }
