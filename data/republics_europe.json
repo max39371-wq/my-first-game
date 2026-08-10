@@ -1,0 +1,626 @@
+[
+  {
+    "id": "al",
+    "ar": "ألبانيا",
+    "en": "Albania",
+    "flag": "🇦🇱",
+    "form": "republic",
+    "sys": "parliamentary",
+    "player": "prime_minister",
+    "legType": "unicameral",
+    "legPower": "high",
+    "jud": "moderate",
+    "mil": "civilian",
+    "parties": "multi",
+    "federal": false,
+    "desc": {
+      "ar": "أنت رئيس الوزراء: تقود السلطة التنفيذية والسياسة العامة في جمهورية برلمانية أحادية المجلس.",
+      "en": "You are the Prime Minister: leading the executive power and public policy in a unicameral parliamentary republic."
+    }
+  },
+  {
+    "id": "at",
+    "ar": "النمسا",
+    "en": "Austria",
+    "flag": "🇦🇹",
+    "form": "republic",
+    "sys": "parliamentary",
+    "player": "prime_minister",
+    "legType": "bicameral",
+    "legPower": "high",
+    "jud": "high",
+    "mil": "civilian",
+    "parties": "multi",
+    "federal": true,
+    "desc": {
+      "ar": "أنت المستشار: تقود جمهورية برلمانية اتحادية حيث يتمتع البرلمان وقضاء الولاية بسلطات واسعة.",
+      "en": "You are the Chancellor: leading a federal parliamentary republic where parliament and the judiciary hold broad powers."
+    }
+  },
+  {
+    "id": "by",
+    "ar": "بيلاروسيا",
+    "en": "Belarus",
+    "flag": "🇧🇾",
+    "form": "republic",
+    "sys": "presidential",
+    "player": "president",
+    "legType": "bicameral",
+    "legPower": "low",
+    "jud": "limited",
+    "mil": "civilian",
+    "terms": [
+      2,
+      5
+    ],
+    "parties": "multi",
+    "federal": false,
+    "desc": {
+      "ar": "أنت الرئيس: تقود جمهورية رئاسية ذات سلطة تنفيذية مطلقة ومؤسسات خاضعة للسيطرة الكاملة.",
+      "en": "You are the President: leading a presidential republic with absolute executive control and fully compliant institutions."
+    }
+  },
+  {
+    "id": "ba",
+    "ar": "البوسنة والهرسك",
+    "en": "Bosnia and Herzegovina",
+    "flag": "🇧🇦",
+    "form": "republic",
+    "sys": "council",
+    "player": "council",
+    "legType": "bicameral",
+    "legPower": "high",
+    "jud": "moderate",
+    "mil": "civilian",
+    "parties": "multi",
+    "federal": true,
+    "desc": {
+      "ar": "أنت المجلس الرئاسي: تقود جمهورية اتحادية فريدة بمجلس رئاسي ثلاثي يمثل المجموعات العرقية الرئيسية.",
+      "en": "You are the Presidential Council: leading a unique federal republic with a tri-member presidency representing the main ethnic groups."
+    }
+  },
+  {
+    "id": "bg",
+    "ar": "بلغاريا",
+    "en": "Bulgaria",
+    "flag": "🇧🇬",
+    "form": "republic",
+    "sys": "parliamentary",
+    "player": "prime_minister",
+    "legType": "unicameral",
+    "legPower": "high",
+    "jud": "moderate",
+    "mil": "civilian",
+    "parties": "multi",
+    "federal": false,
+    "desc": {
+      "ar": "أنت رئيس الوزراء: تدير الشؤون التنفيذية وتصنع القرار في جمهورية برلمانية أحادية المجلس.",
+      "en": "You are the Prime Minister: managing executive affairs and decision-making in a unicameral parliamentary republic."
+    }
+  },
+  {
+    "id": "hr",
+    "ar": "كرواتيا",
+    "en": "Croatia",
+    "flag": "🇭🇷",
+    "form": "republic",
+    "sys": "parliamentary",
+    "player": "prime_minister",
+    "legType": "unicameral",
+    "legPower": "high",
+    "jud": "high",
+    "mil": "civilian",
+    "parties": "multi",
+    "federal": false,
+    "desc": {
+      "ar": "أنت رئيس الوزراء: تقود الحكومة في جمهورية برلمانية ذات نظام برلماني قوي وقضاء مستقل.",
+      "en": "You are the Prime Minister: leading the government in a parliamentary republic with a strong parliament and independent judiciary."
+    }
+  },
+  {
+    "id": "cz",
+    "ar": "التشيك",
+    "en": "Czechia",
+    "flag": "🇨🇿",
+    "form": "republic",
+    "sys": "parliamentary",
+    "player": "prime_minister",
+    "legType": "bicameral",
+    "legPower": "high",
+    "jud": "high",
+    "mil": "civilian",
+    "parties": "multi",
+    "federal": false,
+    "desc": {
+      "ar": "أنت رئيس الوزراء: تقود السلطة التنفيذية في جمهورية برلمانية ديمقراطية ذات مجلسين تشريعيين.",
+      "en": "You are the Prime Minister: leading the executive branch in a democratic parliamentary republic with a bicameral legislature."
+    }
+  },
+  {
+    "id": "ee",
+    "ar": "إستونيا",
+    "en": "Estonia",
+    "flag": "🇪🇪",
+    "form": "republic",
+    "sys": "parliamentary",
+    "player": "prime_minister",
+    "legType": "unicameral",
+    "legPower": "high",
+    "jud": "high",
+    "mil": "civilian",
+    "parties": "multi",
+    "federal": false,
+    "desc": {
+      "ar": "أنت رئيس الوزراء: تقود السلطة التنفيذية في جمهورية برلمانية ديمقراطية رقمية متقدمة.",
+      "en": "You are the Prime Minister: leading the executive power in a digitally advanced democratic parliamentary republic."
+    }
+  },
+  {
+    "id": "fi",
+    "ar": "فنلندا",
+    "en": "Finland",
+    "flag": "🇫🇮",
+    "form": "republic",
+    "sys": "parliamentary",
+    "player": "prime_minister",
+    "legType": "unicameral",
+    "legPower": "high",
+    "jud": "high",
+    "mil": "civilian",
+    "parties": "multi",
+    "federal": false,
+    "desc": {
+      "ar": "أنت رئيس الوزراء: تقود السياسة الحكومية في جمهورية برلمانية ديمقراطية مستقرة للغاية.",
+      "en": "You are the Prime Minister: leading the government policy in a highly stable democratic parliamentary republic."
+    }
+  },
+  {
+    "id": "fr",
+    "ar": "فرنسا",
+    "en": "France",
+    "flag": "🇫🇷",
+    "form": "republic",
+    "sys": "semi_presidential",
+    "player": "president",
+    "legType": "bicameral",
+    "legPower": "high",
+    "jud": "high",
+    "mil": "civilian",
+    "terms": [
+      2,
+      5
+    ],
+    "parties": "multi",
+    "federal": false,
+    "desc": {
+      "ar": "أنت الرئيس: تقود جمهورية شبه رئاسية ذات مجلسين وتتمتع بصلاحيات تنفيذية ودفاعية واسعة.",
+      "en": "You are the President: leading a semi-presidential republic with a bicameral parliament and broad executive and defense powers."
+    }
+  },
+  {
+    "id": "de",
+    "ar": "ألمانيا",
+    "en": "Germany",
+    "flag": "🇩🇪",
+    "form": "republic",
+    "sys": "parliamentary",
+    "player": "prime_minister",
+    "legType": "bicameral",
+    "legPower": "high",
+    "jud": "high",
+    "mil": "civilian",
+    "parties": "multi",
+    "federal": true,
+    "desc": {
+      "ar": "أنت المستشار: جمهورية برلمانية اتحادية، الرئيس رمزي.",
+      "en": "You are the Chancellor: a federal parliamentary republic with a ceremonial president."
+    }
+  },
+  {
+    "id": "gr",
+    "ar": "اليونان",
+    "en": "Greece",
+    "flag": "🇬🇷",
+    "form": "republic",
+    "sys": "parliamentary",
+    "player": "prime_minister",
+    "legType": "unicameral",
+    "legPower": "high",
+    "jud": "high",
+    "mil": "civilian",
+    "parties": "multi",
+    "federal": false,
+    "desc": {
+      "ar": "أنت رئيس الوزراء: تقود الحكومة في جمهورية برلمانية ديمقراطية أحادية المجلس ورئيس رمزي.",
+      "en": "You are the Prime Minister: leading the government in a unicameral parliamentary republic with a ceremonial president."
+    }
+  },
+  {
+    "id": "hu",
+    "ar": "المجر",
+    "en": "Hungary",
+    "flag": "🇭🇺",
+    "form": "republic",
+    "sys": "parliamentary",
+    "player": "prime_minister",
+    "legType": "unicameral",
+    "legPower": "high",
+    "jud": "moderate",
+    "mil": "civilian",
+    "parties": "multi",
+    "federal": false,
+    "desc": {
+      "ar": "أنت رئيس الوزراء: تقود السلطة التنفيذية في جمهورية برلمانية ذات نفوذ حكومي قوي على التشريعات.",
+      "en": "You are the Prime Minister: leading the executive in a parliamentary republic with strong government influence over legislation."
+    }
+  },
+  {
+    "id": "is",
+    "ar": "آيسلندا",
+    "en": "Iceland",
+    "flag": "🇮🇸",
+    "form": "republic",
+    "sys": "parliamentary",
+    "player": "prime_minister",
+    "legType": "unicameral",
+    "legPower": "high",
+    "jud": "high",
+    "mil": "civilian",
+    "parties": "multi",
+    "federal": false,
+    "desc": {
+      "ar": "أنت رئيس الوزراء: تقود ديمقراطية برلمانية عريقة مستقرة مع رئيس رمزي وبرلمان أحادي.",
+      "en": "You are the Prime Minister: leading a highly stable ancient parliamentary democracy with a ceremonial president and unicameral parliament."
+    }
+  },
+  {
+    "id": "ie",
+    "ar": "أيرلندا",
+    "en": "Ireland",
+    "flag": "🇮🇪",
+    "form": "republic",
+    "sys": "parliamentary",
+    "player": "prime_minister",
+    "legType": "bicameral",
+    "legPower": "high",
+    "jud": "high",
+    "mil": "civilian",
+    "parties": "multi",
+    "federal": false,
+    "desc": {
+      "ar": "أنت رئيس الوزراء: تقود السلطة التنفيذية في جمهورية برلمانية ديمقراطية ورئيس شرفي.",
+      "en": "You are the Prime Minister: leading the executive branch in a democratic parliamentary republic with a ceremonial president."
+    }
+  },
+  {
+    "id": "it",
+    "ar": "إيطاليا",
+    "en": "Italy",
+    "flag": "🇮🇹",
+    "form": "republic",
+    "sys": "parliamentary",
+    "player": "prime_minister",
+    "legType": "bicameral",
+    "legPower": "high",
+    "jud": "high",
+    "mil": "civilian",
+    "parties": "multi",
+    "federal": false,
+    "desc": {
+      "ar": "أنت رئيس الوزراء: تقود الحكومة في جمهورية برلمانية ذات مجلسين تشريعيين متساويين في السلطة.",
+      "en": "You are the Prime Minister: leading the government in a parliamentary republic with two co-equal legislative chambers."
+    }
+  },
+  {
+    "id": "lv",
+    "ar": "لاتفيا",
+    "en": "Latvia",
+    "flag": "🇱🇻",
+    "form": "republic",
+    "sys": "parliamentary",
+    "player": "prime_minister",
+    "legType": "unicameral",
+    "legPower": "high",
+    "jud": "high",
+    "mil": "civilian",
+    "parties": "multi",
+    "federal": false,
+    "desc": {
+      "ar": "أنت رئيس الوزراء: تقود السلطة التنفيذية في جمهورية برلمانية ديمقراطية برئيس رمزي.",
+      "en": "You are the Prime Minister: leading the executive branch in a democratic parliamentary republic with a ceremonial president."
+    }
+  },
+  {
+    "id": "lt",
+    "ar": "ليتوانيا",
+    "en": "Lithuania",
+    "flag": "🇱🇹",
+    "form": "republic",
+    "sys": "semi_presidential",
+    "player": "prime_minister",
+    "legType": "unicameral",
+    "legPower": "high",
+    "jud": "high",
+    "mil": "civilian",
+    "parties": "multi",
+    "federal": false,
+    "desc": {
+      "ar": "أنت رئيس الوزراء: تقود السلطة التنفيذية وتتقاسم الصلاحيات مع رئيس منتخب شعبياً في نظام شبه رئاسي.",
+      "en": "You are the Prime Minister: leading the executive power, sharing authority with a popularly elected president in a semi-presidential system."
+    }
+  },
+  {
+    "id": "mt",
+    "ar": "مالطا",
+    "en": "Malta",
+    "flag": "🇲🇹",
+    "form": "republic",
+    "sys": "parliamentary",
+    "player": "prime_minister",
+    "legType": "unicameral",
+    "legPower": "high",
+    "jud": "high",
+    "mil": "civilian",
+    "parties": "multi",
+    "federal": false,
+    "desc": {
+      "ar": "أنت رئيس الوزراء: تقود جمهورية برلمانية جزرية تتمتع بقضاء مستقل ونظام حزبي ثنائي قوي.",
+      "en": "You are the Prime Minister: leading an island parliamentary republic with an independent judiciary and strong two-party system."
+    }
+  },
+  {
+    "id": "md",
+    "ar": "مولدوفا",
+    "en": "Moldova",
+    "flag": "🇲🇩",
+    "form": "republic",
+    "sys": "parliamentary",
+    "player": "prime_minister",
+    "legType": "unicameral",
+    "legPower": "high",
+    "jud": "moderate",
+    "mil": "civilian",
+    "parties": "multi",
+    "federal": false,
+    "desc": {
+      "ar": "أنت رئيس الوزراء: تقود السلطة التنفيذية والسياسة العامة في جمهورية برلمانية تسعى للانضمام للاتحاد الأوروبي.",
+      "en": "You are the Prime Minister: leading the executive power and public policy in a parliamentary republic seeking EU integration."
+    }
+  },
+  {
+    "id": "me",
+    "ar": "الجبل الأسود",
+    "en": "Montenegro",
+    "flag": "🇲🇪",
+    "form": "republic",
+    "sys": "parliamentary",
+    "player": "prime_minister",
+    "legType": "unicameral",
+    "legPower": "high",
+    "jud": "moderate",
+    "mil": "civilian",
+    "parties": "multi",
+    "federal": false,
+    "desc": {
+      "ar": "أنت رئيس الوزراء: رئيس الحكومة في جمهورية برلمانية تسعى لتعزيز حكم القانون ومكافحة الفساد.",
+      "en": "You are the Prime Minister: head of government in a parliamentary republic seeking to strengthen the rule of law and fight corruption."
+    }
+  },
+  {
+    "id": "mk",
+    "ar": "مقدونيا الشمالية",
+    "en": "North Macedonia",
+    "flag": "🇲🇰",
+    "form": "republic",
+    "sys": "parliamentary",
+    "player": "prime_minister",
+    "legType": "unicameral",
+    "legPower": "high",
+    "jud": "moderate",
+    "mil": "civilian",
+    "parties": "multi",
+    "federal": false,
+    "desc": {
+      "ar": "أنت رئيس الوزراء: رئيس السلطة التنفيذية في جمهورية برلمانية متعددة الأعراق برئيس شرفي.",
+      "en": "You are the Prime Minister: head of the executive in a multi-ethnic parliamentary republic with a ceremonial president."
+    }
+  },
+  {
+    "id": "pl",
+    "ar": "بولندا",
+    "en": "Poland",
+    "flag": "🇵🇱",
+    "form": "republic",
+    "sys": "semi_presidential",
+    "player": "prime_minister",
+    "legType": "bicameral",
+    "legPower": "high",
+    "jud": "high",
+    "mil": "civilian",
+    "parties": "multi",
+    "federal": false,
+    "desc": {
+      "ar": "أنت رئيس الوزراء: تقود الحكومة في نظام شبه رئاسي وتتشارك السلطة التنفيذية مع رئيس منتخب ديمقراطياً.",
+      "en": "You are the Prime Minister: leading the government in a semi-presidential system, sharing executive power with a democratically elected president."
+    }
+  },
+  {
+    "id": "pt",
+    "ar": "البرتغال",
+    "en": "Portugal",
+    "flag": "🇵🇹",
+    "form": "republic",
+    "sys": "semi_presidential",
+    "player": "prime_minister",
+    "legType": "unicameral",
+    "legPower": "high",
+    "jud": "high",
+    "mil": "civilian",
+    "parties": "multi",
+    "federal": false,
+    "desc": {
+      "ar": "أنت رئيس الوزراء: تقود السلطة التنفيذية في جمهورية شبه رئاسية حيث يمتلك الرئيس صلاحية حل البرلمان.",
+      "en": "You are the Prime Minister: leading the executive power in a semi-presidential republic where the president holds dissolution powers."
+    }
+  },
+  {
+    "id": "ro",
+    "ar": "رومانيا",
+    "en": "Romania",
+    "flag": "🇷🇴",
+    "form": "republic",
+    "sys": "semi_presidential",
+    "player": "prime_minister",
+    "legType": "bicameral",
+    "legPower": "high",
+    "jud": "high",
+    "mil": "civilian",
+    "parties": "multi",
+    "federal": false,
+    "desc": {
+      "ar": "أنت رئيس الوزراء: تدير شؤون الحكومة في جمهورية شبه رئاسية بمجلسين تشريعيين ورئيس منتخب شعبياً.",
+      "en": "You are the Prime Minister: running the government in a semi-presidential republic with a bicameral parliament and a popularly elected president."
+    }
+  },
+  {
+    "id": "ru",
+    "ar": "روسيا",
+    "en": "Russia",
+    "flag": "🇷🇺",
+    "form": "republic",
+    "sys": "presidential",
+    "player": "president",
+    "legType": "bicameral",
+    "legPower": "low",
+    "jud": "limited",
+    "mil": "civilian",
+    "terms": [
+      2,
+      6
+    ],
+    "parties": "multi",
+    "federal": true,
+    "desc": {
+      "ar": "أنت الرئيس: تقود جمهورية اتحادية رئاسية ذات سلطة تنفيذية مهيمنة للغاية.",
+      "en": "You are the President: leading a federal presidential republic with highly dominant executive power."
+    }
+  },
+  {
+    "id": "sm",
+    "ar": "سان مارينو",
+    "en": "San Marino",
+    "flag": "🇸🇲",
+    "form": "republic",
+    "sys": "council",
+    "player": "council",
+    "legType": "unicameral",
+    "legPower": "high",
+    "jud": "high",
+    "mil": "civilian",
+    "parties": "multi",
+    "federal": false,
+    "desc": {
+      "ar": "أنت المجلس الحاكم: تقود جمهورية برلمانية قديمة برأسين مشتركين للدولة يعينهما المجلس العام.",
+      "en": "You are the Governing Council: leading an ancient parliamentary republic with two co-heads of state appointed by the Grand and General Council."
+    }
+  },
+  {
+    "id": "rs",
+    "ar": "صربيا",
+    "en": "Serbia",
+    "flag": "🇷🇸",
+    "form": "republic",
+    "sys": "parliamentary",
+    "player": "prime_minister",
+    "legType": "unicameral",
+    "legPower": "high",
+    "jud": "moderate",
+    "mil": "civilian",
+    "parties": "multi",
+    "federal": false,
+    "desc": {
+      "ar": "أنت رئيس الوزراء: تقود السلطة التنفيذية في جمهورية برلمانية ديمقراطية أحادية المجلس.",
+      "en": "You are the Prime Minister: leading the executive in a unicameral parliamentary republic."
+    }
+  },
+  {
+    "id": "sk",
+    "ar": "سلوفاكيا",
+    "en": "Slovakia",
+    "flag": "🇸🇰",
+    "form": "republic",
+    "sys": "parliamentary",
+    "player": "prime_minister",
+    "legType": "unicameral",
+    "legPower": "high",
+    "jud": "high",
+    "mil": "civilian",
+    "parties": "multi",
+    "federal": false,
+    "desc": {
+      "ar": "أنت رئيس الوزراء: تقود السلطة التنفيذية في جمهورية برلمانية ديمقراطية برئيس شرفي.",
+      "en": "You are the Prime Minister: leading the executive branch in a democratic parliamentary republic with a ceremonial president."
+    }
+  },
+  {
+    "id": "si",
+    "ar": "سلوفينيا",
+    "en": "Slovenia",
+    "flag": "🇸🇮",
+    "form": "republic",
+    "sys": "parliamentary",
+    "player": "prime_minister",
+    "legType": "unicameral",
+    "legPower": "high",
+    "jud": "high",
+    "mil": "civilian",
+    "parties": "multi",
+    "federal": false,
+    "desc": {
+      "ar": "أنت رئيس الوزراء: رئيس الحكومة في جمهورية برلمانية ديمقراطية مستقرة ذات مجلس تشريعي واحد وقضاء قوي.",
+      "en": "You are the Prime Minister: head of government in a stable democratic parliamentary republic with a unicameral assembly and strong judiciary."
+    }
+  },
+  {
+    "id": "ch",
+    "ar": "سويسرا",
+    "en": "Switzerland",
+    "flag": "🇨🇭",
+    "form": "republic",
+    "sys": "council",
+    "player": "council",
+    "legType": "bicameral",
+    "legPower": "high",
+    "jud": "high",
+    "mil": "civilian",
+    "parties": "multi",
+    "federal": true,
+    "desc": {
+      "ar": "أنت المجلس الاتحادي: تدير شؤون دولة ديمقراطية توافقية وسياستها الاتحادية.",
+      "en": "You are the Federal Council: managing a consensual direct-democratic state and its federal affairs."
+    }
+  },
+  {
+    "id": "ua",
+    "ar": "أوكرانيا",
+    "en": "Ukraine",
+    "flag": "🇺🇦",
+    "form": "republic",
+    "sys": "semi_presidential",
+    "player": "president",
+    "legType": "unicameral",
+    "legPower": "high",
+    "jud": "moderate",
+    "mil": "civilian",
+    "terms": [
+      2,
+      5
+    ],
+    "parties": "multi",
+    "federal": false,
+    "desc": {
+      "ar": "أنت الرئيس: تقود البلاد في نظام شبه رئاسي وتتولى شؤون الدفاع والقيادة التنفيذية.",
+      "en": "You are the President: leading the nation in a semi-presidential system, managing defense and executive leadership."
+    }
+  }
+]
