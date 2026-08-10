@@ -111,16 +111,77 @@
               <div id="stat-bar-military" class="stat-bar" style="width: 50%;"></div>
             </div>
           </div>
+
+          <div class="stat-item">
+            <div class="stat-label-row">
+              <span class="stat-icon-text">😈 <span data-key="corruption">فساد</span></span>
+              <span id="stat-val-corruption" class="stat-val">50%</span>
+            </div>
+            <div class="stat-bar-bg">
+              <div id="stat-bar-corruption" class="stat-bar" style="width: 50%;"></div>
+            </div>
+          </div>
         </div>
 
-        <!-- System Under Construction Panel -->
-        <div class="construction-panel">
-          <p id="construction-text">نظام الأحداث قيد البناء — قريبًا أول قرار لك هنا 🔧</p>
+        <!-- Game Simulation & Multi-AI Agent Panel -->
+        <div class="simulation-panel">
+          <div class="advisor-settings">
+            <div class="settings-title">
+              <span class="advisor-icon">🤖</span>
+              <span data-key="advisor_title">مستشارك</span>
+            </div>
+
+            <div class="advisor-picker-row">
+              <select id="advisor-select" class="advisor-select">
+                <option value="local" data-key="opt_local">المستشار المحلي — مجاني</option>
+                <option value="gemini">Gemini</option>
+                <option value="claude">Claude</option>
+                <option value="openai">OpenAI</option>
+                <option value="deepseek">DeepSeek</option>
+                <option value="openrouter">OpenRouter</option>
+              </select>
+            </div>
+
+            <!-- API Key Input container -->
+            <div id="api-key-container" class="api-key-container" style="display: none;">
+              <input type="password" id="api-key-input" class="api-key-input" placeholder="أدخل مفتاح الـ API..." />
+              <div class="api-key-note" data-key="api_key_note">مفتاحك يبقى في متصفحك فقط</div>
+            </div>
+
+            <!-- OpenRouter Models dropdown -->
+            <div id="openrouter-model-container" class="openrouter-model-container" style="display: none;">
+              <select id="openrouter-model-select" class="model-select">
+                <option value="x-ai/grok-3-mini">x-ai/grok-3-mini</option>
+                <option value="qwen/qwen-2.5-72b-instruct">qwen/qwen-2.5-72b-instruct</option>
+                <option value="moonshotai/kimi-k2">moonshotai/kimi-k2</option>
+                <option value="meta-llama/llama-3.3-70b-instruct">meta-llama/llama-3.3-70b-instruct</option>
+                <option value="mistralai/mistral-large">mistralai/mistral-large</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Decree input and submission -->
+          <div class="decree-input-container">
+            <textarea id="decree-textarea" class="decree-textarea" placeholder="اكتب مرسومك هنا لتغيير سياسة الدولة..."></textarea>
+            <button id="decree-submit-btn" class="decree-submit-btn">
+              <span id="btn-submit-text" data-key="submit_decree">إصدار المرسوم 📜</span>
+            </button>
+          </div>
+
+          <!-- Narrative Results Panel -->
+          <div id="narrative-result-panel" class="narrative-result-panel" style="display: none;">
+            <div class="narrative-header">
+              <span class="result-badge" id="advisor-badge">المستشار المحلي</span>
+            </div>
+            <p id="narrative-text" class="narrative-text"></p>
+            <div id="effects-badge-row" class="effects-badge-row"></div>
+          </div>
         </div>
       </div>
     </section>
   </main>
 
+  <script src="adapters.js"></script>
   <script src="game.js"></script>
 </body>
 </html>
