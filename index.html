@@ -3,28 +3,124 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>لعبة الحكم - قريبًا</title>
-  <style>
-    body {
-      margin: 0;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: #101418;
-      color: #e8e3d8;
-      font-family: sans-serif;
-      text-align: center;
-    }
-    h1 { font-size: 2.2em; }
-    p { color: #9aa0a6; }
-  </style>
+  <title>لعبة الحكم</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div>
-    <h1>🏛️ لعبة الحكم</h1>
-    <p>محاكي قرارات سياسية — قريبًا على متصفحك</p>
-    <p>الإصدار التجريبي الأول قيد البناء 🔧</p>
-  </div>
+  <!-- Header with language toggle -->
+  <header class="app-header">
+    <div class="logo-container">
+      <h1 id="app-title">🏛️ لعبة الحكم</h1>
+    </div>
+    <button id="lang-toggle-btn" class="lang-btn" aria-label="Toggle Language">🌐 EN</button>
+  </header>
+
+  <main class="app-container">
+    <!-- SCREEN 1: HOME -->
+    <section id="screen-home" class="screen active">
+      <div class="search-container">
+        <input type="text" id="search-input" placeholder="ابحث عن دولة..." />
+      </div>
+      <div class="family-buttons">
+        <button id="btn-republics" class="family-btn">
+          <span class="family-icon">🏛️</span>
+          <span class="family-label" data-key="republics">الجمهوريات</span>
+        </button>
+        <button id="btn-monarchies" class="family-btn">
+          <span class="family-icon">👑</span>
+          <span class="family-label" data-key="monarchies">الملكيات</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- SCREEN 2: LIST -->
+    <section id="screen-list" class="screen">
+      <div class="screen-header">
+        <button id="list-back-btn" class="back-btn" aria-label="Back">⬅</button>
+        <h2 id="list-title">الجمهوريات</h2>
+      </div>
+      <!-- Active filters / Search info -->
+      <div class="search-info" id="search-info" style="display: none;"></div>
+      <!-- Country chips grid -->
+      <div id="countries-grid" class="countries-grid"></div>
+    </section>
+
+    <!-- SCREEN 3: COUNTRY CARD -->
+    <section id="screen-card" class="screen">
+      <div class="screen-header">
+        <button id="card-back-btn" class="back-btn" aria-label="Back">⬅</button>
+        <h2 id="card-title">تفاصيل الدولة</h2>
+      </div>
+
+      <div id="country-card-container" class="country-card">
+        <!-- Filled dynamically by JavaScript -->
+      </div>
+    </section>
+
+    <!-- SCREEN 4: GAME SCREEN v1 -->
+    <section id="screen-game" class="screen">
+      <div class="screen-header">
+        <button id="game-back-btn" class="back-btn" aria-label="Back">⬅</button>
+        <div id="game-top-bar" class="game-top-bar">
+          <!-- Filled dynamically: Flag + Country + Role -->
+        </div>
+      </div>
+
+      <div class="game-content">
+        <!-- Stat bars starting at 50 -->
+        <div class="stats-container">
+          <div class="stat-item">
+            <div class="stat-label-row">
+              <span class="stat-icon-text">💰 <span data-key="economy">اقتصاد</span></span>
+              <span id="stat-val-economy" class="stat-val">50%</span>
+            </div>
+            <div class="stat-bar-bg">
+              <div id="stat-bar-economy" class="stat-bar" style="width: 50%;"></div>
+            </div>
+          </div>
+
+          <div class="stat-item">
+            <div class="stat-label-row">
+              <span class="stat-icon-text">⚖️ <span data-key="stability">استقرار</span></span>
+              <span id="stat-val-stability" class="stat-val">50%</span>
+            </div>
+            <div class="stat-bar-bg">
+              <div id="stat-bar-stability" class="stat-bar" style="width: 50%;"></div>
+            </div>
+          </div>
+
+          <div class="stat-item">
+            <div class="stat-label-row">
+              <span class="stat-icon-text">📣 <span data-key="popularity">شعبية</span></span>
+              <span id="stat-val-popularity" class="stat-val">50%</span>
+            </div>
+            <div class="stat-bar-bg">
+              <div id="stat-bar-popularity" class="stat-bar" style="width: 50%;"></div>
+            </div>
+          </div>
+
+          <div class="stat-item">
+            <div class="stat-label-row">
+              <span class="stat-icon-text">🎖️ <span data-key="military">جيش</span></span>
+              <span id="stat-val-military" class="stat-val">50%</span>
+            </div>
+            <div class="stat-bar-bg">
+              <div id="stat-bar-military" class="stat-bar" style="width: 50%;"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- System Under Construction Panel -->
+        <div class="construction-panel">
+          <p id="construction-text">نظام الأحداث قيد البناء — قريبًا أول قرار لك هنا 🔧</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="game.js"></script>
 </body>
 </html>
