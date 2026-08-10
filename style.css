@@ -1,0 +1,547 @@
+/* Dark theme CSS variables */
+:root {
+  --bg-color: #101418;
+  --text-color: #e8e3d8;
+  --text-muted: #9aa0a6;
+  --accent-gold: #c9a86a;
+  --accent-gold-hover: #bfa165;
+  --card-bg: #181d24;
+  --card-border: #232a33;
+  --input-bg: #1d232c;
+  --chip-bg: #1f2730;
+  --chip-hover: #2a3542;
+  --back-btn-hover: #1f2730;
+
+  --font-arabic: 'Cairo', system-ui, sans-serif;
+  --font-english: 'Inter', system-ui, sans-serif;
+}
+
+/* Base Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: var(--font-arabic); /* default */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  line-height: 1.5;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* Dynamically loaded English vs Arabic Fonts and Dir handled by JS,
+   but we can style LTR/RTL correctly: */
+:lang(en) {
+  font-family: var(--font-english);
+}
+
+/* Header styling */
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.25rem;
+  background-color: var(--card-bg);
+  border-bottom: 1px solid var(--card-border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo-container h1 {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--accent-gold);
+}
+
+/* Language Switcher */
+.lang-btn {
+  background: transparent;
+  color: var(--text-color);
+  border: 1px solid var(--accent-gold);
+  border-radius: 20px;
+  padding: 0.35rem 0.8rem;
+  font-size: 0.85rem;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.lang-btn:hover {
+  background-color: var(--accent-gold);
+  color: var(--bg-color);
+}
+
+/* Main Container */
+.app-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 1.25rem;
+  max-width: 600px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* Screen Transitions */
+.screen {
+  display: none;
+  flex-direction: column;
+  animation: fadeIn 0.25s ease-out;
+  width: 100%;
+}
+
+.screen.active {
+  display: flex;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* SCREEN 1: HOME */
+.search-container {
+  margin-bottom: 1.5rem;
+  width: 100%;
+}
+
+#search-input {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  font-size: 1rem;
+  background-color: var(--input-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  color: var(--text-color);
+  font-family: inherit;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+#search-input:focus {
+  outline: none;
+  border-color: var(--accent-gold);
+  box-shadow: 0 0 0 2px rgba(201, 168, 106, 0.15);
+}
+
+.family-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  width: 100%;
+}
+
+.family-btn {
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.2s ease, border-color 0.2s, background-color 0.2s;
+}
+
+.family-btn:hover, .family-btn:active {
+  transform: translateY(-2px);
+  border-color: var(--accent-gold);
+  background-color: var(--chip-hover);
+}
+
+.family-icon {
+  font-size: 2.2rem;
+  margin-bottom: 0.75rem;
+}
+
+.family-label {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+/* SCREEN 2: LIST */
+.screen-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+  border-bottom: 1px solid var(--card-border);
+  padding-bottom: 0.75rem;
+}
+
+.back-btn {
+  background-color: transparent;
+  border: 1px solid var(--card-border);
+  color: var(--text-color);
+  font-size: 1.1rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.back-btn:hover {
+  background-color: var(--back-btn-hover);
+  border-color: var(--accent-gold);
+}
+
+/* Rotate back button arrow for LTR/RTL dynamically handled in JS if needed,
+   or we can use simple arrows. In LTR we can rotate 180deg if needed,
+   but we will keep simple Unicode arrows that fit dir perfectly! */
+html[dir="ltr"] .back-btn {
+  transform: scaleX(-1); /* flips standard ⬅ arrow to point left in LTR, or just use ⬅ which points left anyway! */
+}
+
+.screen-header h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.search-info {
+  background-color: var(--chip-bg);
+  border-radius: 8px;
+  padding: 0.5rem 0.85rem;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  color: var(--accent-gold);
+  border-left: 3px solid var(--accent-gold);
+}
+
+html[dir="rtl"] .search-info {
+  border-left: none;
+  border-right: 3px solid var(--accent-gold);
+}
+
+/* Country chips grid */
+.countries-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: 0.75rem;
+  padding-bottom: 2rem;
+}
+
+.country-chip {
+  background-color: var(--chip-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  padding: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+.country-chip:hover, .country-chip:active {
+  border-color: var(--accent-gold);
+  background-color: var(--chip-hover);
+  transform: translateY(-2px);
+}
+
+.country-chip .chip-flag {
+  font-size: 1.8rem;
+  margin-bottom: 0.4rem;
+}
+
+.country-chip .chip-name {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-color);
+  margin-bottom: 0.25rem;
+  word-break: break-word;
+}
+
+.country-chip .chip-sys {
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  background-color: rgba(255, 255, 255, 0.04);
+  padding: 0.15rem 0.4rem;
+  border-radius: 6px;
+  text-transform: capitalize;
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* SCREEN 3: COUNTRY CARD */
+.country-card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 18px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+}
+
+.card-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  border-bottom: 1px solid var(--card-border);
+  padding-bottom: 1.25rem;
+}
+
+.card-hero .card-flag {
+  font-size: 3.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.card-hero .card-country-name {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-color);
+  margin-bottom: 0.25rem;
+}
+
+.card-hero .card-sys-badge {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--accent-gold);
+  background-color: rgba(201, 168, 106, 0.08);
+  border: 1px solid rgba(201, 168, 106, 0.2);
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  text-transform: uppercase;
+}
+
+.card-desc {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text-color);
+  text-align: justify;
+}
+
+.card-role-line {
+  background-color: rgba(201, 168, 106, 0.05);
+  border: 1px dashed var(--accent-gold);
+  border-radius: 10px;
+  padding: 0.85rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--accent-gold);
+  text-align: center;
+}
+
+.card-facts {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  background-color: rgba(255, 255, 255, 0.02);
+  border-radius: 12px;
+  padding: 1rem;
+  border: 1px solid var(--card-border);
+}
+
+.fact-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.88rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.fact-row:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.fact-label {
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.fact-value {
+  color: var(--text-color);
+  font-weight: 600;
+}
+
+/* Primary Action Button "ابدأ الحكم ▶" */
+.start-rule-btn {
+  background-color: var(--accent-gold);
+  color: var(--bg-color);
+  border: none;
+  border-radius: 12px;
+  padding: 1rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: background-color 0.2s, transform 0.1s;
+  font-family: inherit;
+  box-shadow: 0 4px 12px rgba(201, 168, 106, 0.2);
+}
+
+.start-rule-btn:hover {
+  background-color: var(--accent-gold-hover);
+}
+
+.start-rule-btn:active {
+  transform: scale(0.98);
+}
+
+/* SCREEN 4: GAME SCREEN */
+.game-top-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  flex: 1;
+}
+
+.game-top-bar .game-flag {
+  font-size: 1.4rem;
+}
+
+.game-top-bar .game-title-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.game-top-bar .game-country-name {
+  font-weight: 700;
+}
+
+.game-top-bar .game-player-role {
+  font-size: 0.75rem;
+  color: var(--accent-gold);
+  font-weight: 500;
+}
+
+.game-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Stat bars styling */
+.stats-container {
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.stat-label-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.stat-icon-text {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.stat-val {
+  color: var(--accent-gold);
+  font-weight: 700;
+}
+
+.stat-bar-bg {
+  height: 10px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 5px;
+  overflow: hidden;
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.02);
+}
+
+.stat-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #b8985c, var(--accent-gold));
+  border-radius: 5px;
+  transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Custom alignment for LTR stat bars gradient if desired,
+   but a flat gold or linear gradient works perfectly in both directions! */
+
+/* Construction panel */
+.construction-panel {
+  background-color: var(--card-bg);
+  border: 1px dashed var(--card-border);
+  border-radius: 16px;
+  padding: 2.5rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 150px;
+}
+
+#construction-text {
+  font-size: 1.05rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  max-width: 80%;
+}
+
+/* Media Queries for small mobile devices */
+@media (max-width: 360px) {
+  .family-buttons {
+    grid-template-columns: 1fr;
+  }
+
+  .logo-container h1 {
+    font-size: 1.15rem;
+  }
+
+  .app-header {
+    padding: 0.75rem 1rem;
+  }
+
+  .app-container {
+    padding: 0.75rem 1rem;
+  }
+
+  .country-card {
+    padding: 1rem;
+  }
+
+  .card-hero .card-flag {
+    font-size: 3rem;
+  }
+}
